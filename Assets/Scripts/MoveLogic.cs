@@ -36,4 +36,9 @@ public class MoveLogic : MonoBehaviour
         mainUI.SetActive(true);
         moveUI.SetActive(false);
     }
+
+    public void Test(Dialogue text)
+	{
+        Debug.Log(text.text[0]);
+	}
 }
