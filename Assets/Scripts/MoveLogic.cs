@@ -22,7 +22,7 @@ public class MoveLogic : MonoBehaviour
 
     public void LoadRoom(int room)
     {
-        SceneManager.LoadScene(room - 1);
+        SceneManager.LoadScene(room);
     }
 
     public void ShowMoveUI()

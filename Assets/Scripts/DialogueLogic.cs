@@ -38,6 +38,7 @@ public class DialogueLogic : MonoBehaviour
             mainUI.SetActive(true);
         }
     }
+
 	public void Speak(Dialogue text)
     {
         continueText = true;
