@@ -15,18 +15,9 @@ public class DialogueLogic : MonoBehaviour
     bool continueText;
     public GameObject cont;
 
-    public void Speak(Dialogue text){
-        continueText = true;
-		mainUI.SetActive(false);
-		textBox.SetActive(true);
-
-        if (fullDialogue != null)
-		    fullDialogue.Clear();
-
-        foreach (string x in text.text)
-            fullDialogue.Enqueue(x);
-
-        while (fullDialogue.Count > 0){
+	private void Update()
+    {
+        if (fullDialogue.Count > 0){
             if (cont.activeSelf == true && Input.GetKeyDown(KeyCode.Return)){
                 cont.SetActive(false);
                 continueText = true;
@@ -41,16 +32,32 @@ public class DialogueLogic : MonoBehaviour
                     StartCoroutine(ReadText());
             }
         }
+		else if (cont.activeSelf == true && Input.GetKeyDown(KeyCode.Return)){
+            cont.SetActive(false);
+            textBox.SetActive(false);
+            mainUI.SetActive(true);
+        }
+    }
+	public void Speak(Dialogue text)
+    {
+        continueText = true;
+		mainUI.SetActive(false);
+		textBox.SetActive(true);
+
+        if (fullDialogue != null)
+		    fullDialogue.Clear();
+
+        foreach (string x in text.text)
+            fullDialogue.Enqueue(x);
     }
 
     IEnumerator ReadText()
     {
         continueText = false;
-		foreach (char x in diagString)
-		{
+		foreach (char x in diagString){
 			textDisplay.text += x;
-			if (x == ' ')
-                yield return new WaitForSeconds(0.1f);
+			if (x != ' ')
+                yield return new WaitForSeconds(0.2f);
 		}
         cont.SetActive(true);
     }
