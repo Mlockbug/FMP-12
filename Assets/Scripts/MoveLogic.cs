@@ -8,18 +8,6 @@ public class MoveLogic : MonoBehaviour
     public GameObject mainUI;
     public GameObject moveUI;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LoadRoom(int room)
     {
         SceneManager.LoadScene(room);
@@ -35,5 +23,10 @@ public class MoveLogic : MonoBehaviour
     {
         mainUI.SetActive(true);
         moveUI.SetActive(false);
+    }
+
+    public void PlayPoker()
+    {
+        SceneManager.LoadScene(4);
     }
 }
