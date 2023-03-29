@@ -9,13 +9,17 @@ public class PokerLogic : MonoBehaviour
     public GameObject[] round1Cards;
     public GameObject[] round2Cards;
     public GameObject[] round3Cards;
+    public GameObject[,] cards;
     int round = 1;
     int pot = 0;
     int maxBet;
     int money = 2000;
+    int stage = 0;
+
     [Header("Values Display")]
     public Text moneyDisplay;
     public Text potDisplay;
+
     [Header("UI")]
     public GameObject betButtons;
     public GameObject raiseMenu;
@@ -25,26 +29,30 @@ public class PokerLogic : MonoBehaviour
     bool canFold = false;
     bool canAllIn = false;
     bool canRaise = true;
+
     [Header("Dialogue")]
     public string[] round1Text;
     public string[] round2Text;
     public string[] round3Text;
-	// Start is called before the first frame update
+
 	void Start()
     {
+        SortArray(round1Cards, cards, 0);
+        SortArray(round2Cards, cards, 1);
+        SortArray(round3Cards, cards, 2);
         Dialogue round1Dialogue= new Dialogue();  round1Dialogue.text = round1Text;
         Dialogue round2Dialogue= new Dialogue();  round2Dialogue.text = round2Text;
         Dialogue round3Dialogue= new Dialogue();  round3Dialogue.text = round3Text;
     }
 
-    // Update is called once per frame
     void Update()
     {
         moneyDisplay.text = "Chips: "+money.ToString();
         potDisplay.text = "Pot: "+pot.ToString();
-        foldButton.interactable = canFold;
         allInButton.interactable = canAllIn;
         raiseButton.interactable = canRaise;
+
+        //need  to redo this switch case
 
         switch (round){
             case 1:
@@ -67,6 +75,10 @@ public class PokerLogic : MonoBehaviour
             canRaise = false;
     }
 
+    public void Bet(int amount)
+    {
+
+    }
     public void ShowRaiseMenu(){
         betButtons.SetActive(false);
         raiseMenu.SetActive(true);
@@ -74,5 +86,14 @@ public class PokerLogic : MonoBehaviour
     public void HideRaiseMenu(){
         betButtons.SetActive(true);
         raiseMenu.SetActive(false);
+    }
+
+    public void SortArray(GameObject[] toSort, GameObject[,] sort, int row)
+    {
+        int pass = 0;
+        foreach(GameObject x in toSort)
+        {
+            sort[row, pass] = x;
+        }
     }
 }
