@@ -49,6 +49,7 @@ public class PokerLogic : MonoBehaviour
     {
         moneyDisplay.text = "Chips: "+money.ToString();
         potDisplay.text = "Pot: "+pot.ToString();
+        foldButton.interactable = canFold;
         allInButton.interactable = canAllIn;
         raiseButton.interactable = canRaise;
 
@@ -94,6 +95,7 @@ public class PokerLogic : MonoBehaviour
         foreach(GameObject x in toSort)
         {
             sort[row, pass] = x;
+            pass++;
         }
     }
 }
