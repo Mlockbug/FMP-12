@@ -26,9 +26,11 @@ public class PokerLogic : MonoBehaviour
     public Button foldButton;
     public Button allInButton;
     public Button raiseButton;
+    public Button callButton;
     bool canFold = false;
     bool canAllIn = false;
     bool canRaise = true;
+    bool canCall = true;
 
     [Header("Dialogue")]
     public string[] round1Text;
@@ -52,7 +54,7 @@ public class PokerLogic : MonoBehaviour
         foldButton.interactable = canFold;
         allInButton.interactable = canAllIn;
         raiseButton.interactable = canRaise;
-
+        callButton.interactable = canCall;
         //need  to redo this switch case
 
         switch (round){
@@ -97,5 +99,24 @@ public class PokerLogic : MonoBehaviour
             sort[row, pass] = x;
             pass++;
         }
+    }
+
+    public void Call(bool player)
+    {
+        if (player)
+		{
+            money -= maxBet;
+		}
+        pot += maxBet;
+	}
+
+    public void Raise(string input)
+	{
+        maxBet = System.Convert.ToInt32(input.Substring(0,3));
+        if (input.Substring(3,3) == "yes")
+        {
+            money -= maxBet;
+        }
+        pot += maxBet;
     }
 }
