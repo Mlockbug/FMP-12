@@ -9,7 +9,7 @@ public class PokerLogic : MonoBehaviour
     public GameObject[] round1Cards;
     public GameObject[] round2Cards;
     public GameObject[] round3Cards;
-    public GameObject[,] cards;
+    public GameObject[,] cards = new GameObject[3,4];
     int round = 1;
     int pot = 0;
     int maxBet;
