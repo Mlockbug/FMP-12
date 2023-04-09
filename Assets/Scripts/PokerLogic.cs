@@ -30,7 +30,7 @@ public class PokerLogic : MonoBehaviour
     bool canFold = false;
     bool canAllIn = false;
     bool canRaise = true;
-    bool canCall = true;
+    bool canCall = false;
 
     [Header("Dialogue")]
     public string[] round1Text;
