@@ -14,6 +14,15 @@ public class DialogueLogic : MonoBehaviour
 	string diagString;
     bool continueText;
     public GameObject cont;
+    public string[] startingText;
+
+	private void Start(){
+        if (startingText.Length != 0){
+            Dialogue startingDiag = new Dialogue(); 
+            startingDiag.text = startingText;
+            Speak(startingDiag);
+        }
+	}
 
 	private void Update()
     {
@@ -23,19 +32,25 @@ public class DialogueLogic : MonoBehaviour
                 continueText = true;
             }
 
-            if (continueText){
+            if (!continueText && Input.GetKeyDown(KeyCode.Return)){
+                textDisplay.text = diagString;
+                cont.SetActive(true);
+			}
+
+            if (continueText)
+            {
                 textDisplay.text = "";
                 diagString = fullDialogue.Dequeue();
                 if (diagString.Contains("NAME-"))
                     nameDisplay.text = diagString.Split('-')[1];
+                else if (diagString == "END") {
+                    cont.SetActive(false);
+                    textBox.SetActive(false);
+                    mainUI.SetActive(true);
+                }
                 else
                     StartCoroutine(ReadText());
             }
-        }
-		else if (cont.activeSelf == true && Input.GetKeyDown(KeyCode.Return)){
-            cont.SetActive(false);
-            textBox.SetActive(false);
-            mainUI.SetActive(true);
         }
     }
 
@@ -56,9 +71,11 @@ public class DialogueLogic : MonoBehaviour
     {
         continueText = false;
 		foreach (char x in diagString){
-			textDisplay.text += x;
-			if (x != ' ')
-                yield return new WaitForSeconds(0.2f);
+            if (cont.activeSelf == false){
+                textDisplay.text += x;
+                if (x != ' ')
+                    yield return new WaitForSeconds(0.2f);
+            }
 		}
         cont.SetActive(true);
     }

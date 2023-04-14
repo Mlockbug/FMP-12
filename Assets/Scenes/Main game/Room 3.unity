@@ -426,6 +426,7 @@ MonoBehaviour:
   textDisplay: {fileID: 170336349}
   nameDisplay: {fileID: 1365879582}
   cont: {fileID: 1118686574}
+  startingText: []
 --- !u!1 &395412252
 GameObject:
   m_ObjectHideFlags: 0

@@ -622,6 +622,7 @@ MonoBehaviour:
   - sdxg rjbn
   - 'iadkxub kasb,ndb '
   - dasdi iagywiu 2av s s
+  - END
 --- !u!114 &264634036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1973,6 +1974,7 @@ MonoBehaviour:
   textDisplay: {fileID: 764886922}
   nameDisplay: {fileID: 758235697}
   cont: {fileID: 1141171536}
+  startingText: []
 --- !u!1 &2026234183
 GameObject:
   m_ObjectHideFlags: 0
