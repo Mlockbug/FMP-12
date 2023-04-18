@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueLogic : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class DialogueLogic : MonoBehaviour
 
 	private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Semicolon))
+            SceneManager.LoadScene(0);
+
         if (fullDialogue.Count > 0){
             if (cont.activeSelf == true && Input.GetKeyDown(KeyCode.Return)){
                 cont.SetActive(false);
