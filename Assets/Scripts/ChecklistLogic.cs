@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChecklistLogic : MonoBehaviour
 {
+    public bool pokerDone;
     int count;
     void Start()
     {

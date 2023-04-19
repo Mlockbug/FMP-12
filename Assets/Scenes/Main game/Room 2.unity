@@ -657,6 +657,14 @@ MonoBehaviour:
   - NAME-EDWARD SUNDERLAND
   - Trust me I know that more than anyone in this house.
   - END
+  checklist: {fileID: 0}
+  pokerCompleted:
+  - NAME-DETECTIVE
+  - I hope you realise now where your actions have led you.
+  - Or more importantly, led her.
+  - NAME-EDWARD SUNDERLAND
+  - Yes detective, I shall be better in the future.
+  - END
 --- !u!1 &338524922
 GameObject:
   m_ObjectHideFlags: 0

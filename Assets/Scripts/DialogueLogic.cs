@@ -16,10 +16,17 @@ public class DialogueLogic : MonoBehaviour
     bool continueText;
     public GameObject cont;
     public string[] startingText;
+    public ChecklistLogic checklist;
+
+    [Header("Minigame completed dialogue")]
+    public string[] pokerCompleted;
+    Dialogue pokerText;
 
 	private void Start(){
+        createDialogue();
+        checklist = GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>();
         if (startingText.Length != 0){
-            Dialogue startingDiag = new Dialogue(); 
+            Dialogue startingDiag = gameObject.AddComponent<Dialogue>();
             startingDiag.text = startingText;
             Speak(startingDiag);
         }
@@ -61,6 +68,13 @@ public class DialogueLogic : MonoBehaviour
 
 	public void Speak(Dialogue text)
     {
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 2 when checklist.pokerDone:
+                text = pokerText;
+                break;
+        }
+
         continueText = true;
 		mainUI.SetActive(false);
 		textBox.SetActive(true);
@@ -84,4 +98,10 @@ public class DialogueLogic : MonoBehaviour
 		}
         cont.SetActive(true);
     }
+
+    void createDialogue()
+	{
+        //doing this here to not clutter start
+        pokerText = gameObject.AddComponent<Dialogue>(); pokerText.text = pokerCompleted;
+	}
 }

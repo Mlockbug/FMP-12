@@ -12,6 +12,7 @@ public class PokerLogic : MonoBehaviour
     public GameObject[] round2Cards;
     public GameObject[] round3Cards;
     public GameObject[,] cards = new GameObject[3,4];
+    public GameObject backOfEdwardHand;
     int round = 0;
     int pot = 0;
     int maxBet = 0;
@@ -67,8 +68,10 @@ public class PokerLogic : MonoBehaviour
         if (round == 2)
             edwardBet= 100;
 
-        if (round == 3)
+        if (round == 3){
+            GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().pokerDone = true;
             SceneManager.LoadScene(2);
+        }
 
         if (inText && !textBox.activeSelf){
             stage++;
@@ -95,6 +98,7 @@ public class PokerLogic : MonoBehaviour
 					break;
                 case 2:
                     cards[round, 0].SetActive(true);
+                    backOfEdwardHand.SetActive(true);
                     StartCoroutine(Wait());
 					StartCoroutine(Announce("Dealing hand"));
 					break;
@@ -153,6 +157,8 @@ public class PokerLogic : MonoBehaviour
 					if (maxBet >= edwardBet){
 						Call(false);
 						StartCoroutine(Announce("Edward bets " + maxBet.ToString()));
+                        if (goneAllIn)
+                            cards[round, 4].SetActive(true);
 					}
 					else{
 						Bet(edwardBet.ToString()+"noo");
@@ -179,7 +185,9 @@ public class PokerLogic : MonoBehaviour
 					if (maxBet >= 150){
 						Call(false);
 						StartCoroutine(Announce("Edward bets " + maxBet.ToString()));
-					}
+                        if (goneAllIn)
+                            cards[round, 4].SetActive(true);
+                    }
 					else{
 						Bet(edwardBet.ToString() + "noo");
 						StartCoroutine(Announce("Edward bets " + edwardBet.ToString()));
@@ -193,6 +201,7 @@ public class PokerLogic : MonoBehaviour
                     else{
 						StartCoroutine(Announce("Edward won " + pot));
 					}
+                    cards[round, 4].SetActive(true);
                     pot = 0;
                     StartCoroutine(Wait());
 					break;
