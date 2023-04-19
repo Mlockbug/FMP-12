@@ -11,7 +11,7 @@ public class PokerLogic : MonoBehaviour
     public GameObject[] round1Cards;
     public GameObject[] round2Cards;
     public GameObject[] round3Cards;
-    public GameObject[,] cards = new GameObject[3,4];
+    public GameObject[,] cards = new GameObject[3,5];
     public GameObject backOfEdwardHand;
     int round = 0;
     int pot = 0;
@@ -82,13 +82,15 @@ public class PokerLogic : MonoBehaviour
             switch (stage)
             {
                 case 0:
-                    maxBet= 0;
-                    if (round !=0)
-                        Disable(round - 1);
-					canAllIn = false;
-                    canFold= false;
-                    goneAllIn= false;
+                    if (money != 0){
+                        maxBet = 0;
+                        if (round != 0)
+                            Disable(round - 1);
+                        canAllIn = false;
+                        canFold = false;
+                        goneAllIn = false;
                         StartCoroutine(Wait());
+                    }
                     break;
                 case 1:
                     pot += 85;
@@ -227,6 +229,7 @@ public class PokerLogic : MonoBehaviour
                     {
 						GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>().Speak(giveChips);
 					}
+                    backOfEdwardHand.SetActive(false);
                     round++;
                     stage = 0;
                     break;
@@ -305,7 +308,7 @@ public class PokerLogic : MonoBehaviour
     }
 
 	private void Disable(int row){
-        for (int i = 0; i <= 3; i++)
+        for (int i = 0; i <= 4; i++)
         {
             cards[row, i].SetActive(false);
         }
