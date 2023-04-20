@@ -12,7 +12,7 @@ public class DialogueLogic : MonoBehaviour
     public Text textDisplay;
     public Text nameDisplay;
     Queue<string> fullDialogue = new Queue<string>();
-	string diagString;
+    string diagString;
     bool continueText;
     public GameObject cont;
     public string[] startingText;
@@ -22,32 +22,35 @@ public class DialogueLogic : MonoBehaviour
     public string[] pokerCompleted;
     Dialogue pokerText;
 
-	private void Start(){
+    private void Start(){
         createDialogue();
         checklist = GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>();
-        if (startingText.Length != 0){
+        if (startingText.Length != 0)
+        {
             Dialogue startingDiag = gameObject.AddComponent<Dialogue>();
             startingDiag.text = startingText;
             Speak(startingDiag);
         }
-	}
+    }
 
-	private void Update()
+    private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Semicolon))
             SceneManager.LoadScene(0);
 
-        if (fullDialogue.Count > 0){
-            if (cont.activeSelf == true && Input.GetKeyDown(KeyCode.Return)){
+        if (fullDialogue.Count > 0)
+        {
+            if (cont.activeSelf == true && Input.GetKeyDown(KeyCode.Return))
+            {
                 cont.SetActive(false);
                 continueText = true;
             }
 
-            if (!continueText && Input.GetKeyDown(KeyCode.Return)){
+            if (!continueText && Input.GetKeyDown(KeyCode.Return))
+            {
                 textDisplay.text = diagString;
                 cont.SetActive(true);
-			}
+            }
 
             if (continueText)
             {
@@ -55,7 +58,8 @@ public class DialogueLogic : MonoBehaviour
                 diagString = fullDialogue.Dequeue();
                 if (diagString.Contains("NAME-"))
                     nameDisplay.text = diagString.Split('-')[1];
-                else if (diagString == "END") {
+                else if (diagString == "END")
+                {
                     cont.SetActive(false);
                     textBox.SetActive(false);
                     mainUI.SetActive(true);
@@ -66,7 +70,7 @@ public class DialogueLogic : MonoBehaviour
         }
     }
 
-	public void Speak(Dialogue text)
+    public void Speak(Dialogue text)
     {
         switch (SceneManager.GetActiveScene().buildIndex)
         {
@@ -76,11 +80,11 @@ public class DialogueLogic : MonoBehaviour
         }
 
         continueText = true;
-		mainUI.SetActive(false);
-		textBox.SetActive(true);
+        mainUI.SetActive(false);
+        textBox.SetActive(true);
 
         if (fullDialogue != null)
-		    fullDialogue.Clear();
+            fullDialogue.Clear();
 
         foreach (string x in text.text)
             fullDialogue.Enqueue(x);
@@ -89,19 +93,21 @@ public class DialogueLogic : MonoBehaviour
     IEnumerator ReadText()
     {
         continueText = false;
-		foreach (char x in diagString){
-            if (cont.activeSelf == false){
+        foreach (char x in diagString)
+        {
+            if (cont.activeSelf == false)
+            {
                 textDisplay.text += x;
                 if (x != ' ')
                     yield return new WaitForSeconds(0.2f);
             }
-		}
+        }
         cont.SetActive(true);
     }
 
     void createDialogue()
-	{
+    {
         //doing this here to not clutter start
         pokerText = gameObject.AddComponent<Dialogue>(); pokerText.text = pokerCompleted;
-	}
+    }
 }

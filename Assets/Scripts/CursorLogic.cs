@@ -6,7 +6,7 @@ public class CursorLogic : MonoBehaviour
 {
     int count;
     public Transform cursor;
-    // Start is called before the first frame update
+    public Animator myAnim;
     void Start()
     {
         Cursor.visible = false;
@@ -24,10 +24,14 @@ public class CursorLogic : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         cursor.position = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
-        cursor.position = new Vector3(cursor.position.x, cursor.position.y, 0f);
+        cursor.position = new Vector3(cursor.position.x+0.1f, cursor.position.y-0.15f, 0f);
+
+        if (Input.GetMouseButtonDown(0))
+		{
+            myAnim.SetTrigger("click");
+		}
     }
 }
