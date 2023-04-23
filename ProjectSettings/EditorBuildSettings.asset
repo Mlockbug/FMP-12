@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Poker.unity
     guid: 74fe891de3ca75144bd04839577000e7
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Cooking.unity
+    guid: ea83371c82aa9674cbaeadfb34df4260
   m_configObjects: {}

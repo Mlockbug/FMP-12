@@ -64,8 +64,8 @@ public class DialogueLogic : MonoBehaviour {
 			case 2 when checklist.pokerDone:
 				text = pokerText;
 				break;
+			//will have more when more dialogues get implemented
 		}
-
 		continueText = true;
 		mainUI.SetActive(false);
 		textBox.SetActive(true);
