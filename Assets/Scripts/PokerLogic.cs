@@ -77,7 +77,7 @@ public class PokerLogic : MonoBehaviour {
 		if (!waiting && !inactive && !inText) {
 			switch (stage) {
 				case 0:
-					if (money != 0) {
+					if (money != 0 && !textBox.activeSelf) {
 						maxBet = 0;
 						if (round != 0)
 							Disable(round - 1);
@@ -86,6 +86,8 @@ public class PokerLogic : MonoBehaviour {
 						goneAllIn = false;
 						StartCoroutine(Wait());
 					}
+					else if (money == 0 && !textBox.activeSelf)
+						money = 750;
 					break;
 				case 1:
 					pot += 85;

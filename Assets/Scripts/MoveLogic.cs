@@ -24,4 +24,8 @@ public class MoveLogic : MonoBehaviour {
 	public void PlayPoker() {
 		SceneManager.LoadScene("Poker");
 	}
+
+	public void PlayCooking() {
+		SceneManager.LoadScene("Cooking");
+	}
 }
