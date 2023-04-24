@@ -181,7 +181,11 @@ public class PokerLogic : MonoBehaviour {
 					inactive = true;
 					break;
 				case 14:
-					if (maxBet >= 150) {
+					if (round == 0 && goneAllIn) {
+						StartCoroutine(Announce("Edward folds"));
+						StartCoroutine(Wait());
+					}
+					else if (maxBet >= 150) {
 						Call(false);
 						StartCoroutine(Announce("Edward bets " + maxBet.ToString()));
 						if (goneAllIn)
@@ -200,7 +204,8 @@ public class PokerLogic : MonoBehaviour {
 					else {
 						StartCoroutine(Announce("Edward won " + pot));
 					}
-					cards[round, 4].SetActive(true);
+					if (!(round == 0 && goneAllIn))
+						cards[round, 4].SetActive(true);
 					pot = 0;
 					StartCoroutine(Wait());
 					break;

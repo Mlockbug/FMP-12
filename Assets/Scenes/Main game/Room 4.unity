@@ -285,7 +285,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1529849657}
         m_TargetAssemblyTypeName: MoveLogic, Assembly-CSharp
         m_MethodName: ShowMainUI
         m_Mode: 1
