@@ -24,7 +24,6 @@ public class CursorLogic : MonoBehaviour {
 	void Update() {
 		cursor.position = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
 		cursor.position = new Vector3(cursor.position.x + 0.1f, cursor.position.y - 0.15f, 0f);
-
 		if (Input.GetMouseButtonDown(0))
 			myAnim.SetTrigger("click");
 	}

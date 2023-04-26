@@ -15,6 +15,8 @@ public class DialogueLogic : MonoBehaviour {
 	public GameObject cont;
 	public string[] startingText;
 	public ChecklistLogic checklist;
+	public GameObject currentSprite;
+	public GameObject[] sprites;
 
 	[Header("Minigame completed dialogue")]
 	public string[] pokerCompleted;
@@ -52,6 +54,14 @@ public class DialogueLogic : MonoBehaviour {
 					cont.SetActive(false);
 					textBox.SetActive(false);
 					mainUI.SetActive(true);
+				}
+				else if (diagString.Contains("SPRITE-")) {
+					foreach(GameObject x in sprites)
+						if(x.name == diagString.Split('-')[1]) {
+							currentSprite.SetActive(false);
+							currentSprite = x;
+							currentSprite.SetActive(true);
+						}
 				}
 				else
 					StartCoroutine(ReadText());
