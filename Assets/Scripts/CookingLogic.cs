@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class CookingLogic : MonoBehaviour {
 
+	public GameObject textBox;
+	Dialogue diag;
+	bool inText = false;
+	public string[] dialogueText;
+
 	[Header("Stages")]
 	int stage;
 	public GameObject stage1;
@@ -31,8 +36,10 @@ public class CookingLogic : MonoBehaviour {
 	bool canFry = true;
 	int cutCount;
 	bool canCut = true;
-	bool canExit = false;
+	int exitStage = 0;
 	void Start() {
+		diag = gameObject.AddComponent<Dialogue>();
+		diag.text = dialogueText;
 		knifeLocation = knife.position;
 	}
 	void Update() {
@@ -53,7 +60,13 @@ public class CookingLogic : MonoBehaviour {
 				}
 				break;
 			case 3:
-				if (Input.GetKeyDown(KeyCode.Return) && canExit) {
+				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 1 && !inText) {
+					GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>().Speak(diag);
+					exitPrompt.SetActive(false);
+					inText = true;
+				}
+				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 2) {
+					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().cookingDone = true;
 					SceneManager.LoadScene(4);
 				}
 				break;
@@ -75,6 +88,10 @@ public class CookingLogic : MonoBehaviour {
 			stage3.SetActive(false);
 			stage4.SetActive(true);
 			stage = 3;
+			StartCoroutine(Exit());
+		}
+		if (inText && !textBox.activeSelf) {
+			inText= false;
 			StartCoroutine(Exit());
 		}
 	}
@@ -111,9 +128,11 @@ public class CookingLogic : MonoBehaviour {
 		StopCoroutine(Stage3Progress());
 	}
 	IEnumerator Exit() {
-		yield return new WaitForSeconds(7.5f);
+		yield return new WaitForSeconds(2.5f);
 		exitPrompt.SetActive(true);
-		canExit = true;
+		Debug.Log(exitStage);
+		exitStage++;
+		Debug.Log(exitStage);
 		StopCoroutine(Exit());
 	}
 }

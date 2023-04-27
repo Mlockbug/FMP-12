@@ -21,6 +21,8 @@ public class DialogueLogic : MonoBehaviour {
 	[Header("Minigame completed dialogue")]
 	public string[] pokerCompleted;
 	Dialogue pokerText;
+	public string[] cookingCompleted;
+	Dialogue cookingText;
 
 	private void Start() {
 		CreateDialogue();
@@ -74,6 +76,9 @@ public class DialogueLogic : MonoBehaviour {
 			case 2 when checklist.pokerDone:
 				text = pokerText;
 				break;
+			case 4 when checklist.cookingDone:
+				text = cookingText; 
+				break;
 			//will have more when more dialogues get implemented
 		}
 		continueText = true;
@@ -100,5 +105,6 @@ public class DialogueLogic : MonoBehaviour {
 	void CreateDialogue() {
 		//doing this here to not clutter start
 		pokerText = gameObject.AddComponent<Dialogue>(); pokerText.text = pokerCompleted;
+		cookingText = gameObject.AddComponent<Dialogue>(); cookingText.text = cookingCompleted;
 	}
 }

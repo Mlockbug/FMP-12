@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChecklistLogic : MonoBehaviour {
 	public bool pokerDone;
+	public bool cookingDone;
 	int count;
 	void Start() {
 		foreach (GameObject x in GameObject.FindGameObjectsWithTag("Checklist"))
