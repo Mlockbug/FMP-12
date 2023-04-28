@@ -2402,6 +2402,7 @@ MonoBehaviour:
   - {fileID: 199908253}
   - {fileID: 1552961781}
   pokerCompleted: []
+  cookingCompleted: []
 --- !u!1 &2026234183
 GameObject:
   m_ObjectHideFlags: 0
