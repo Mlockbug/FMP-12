@@ -28,4 +28,8 @@ public class MoveLogic : MonoBehaviour {
 	public void PlayCooking() {
 		SceneManager.LoadScene("Cooking");
 	}
+
+	public void PlayChild() {
+		SceneManager.LoadScene("Child");
+	}
 }

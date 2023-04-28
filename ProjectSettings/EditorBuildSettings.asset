@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Cooking.unity
     guid: ea83371c82aa9674cbaeadfb34df4260
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Child.unity
+    guid: f1580fd4aff584249b4fa370d16f4cd5
   m_configObjects: {}
