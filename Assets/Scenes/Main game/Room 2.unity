@@ -457,6 +457,7 @@ MonoBehaviour:
   - NAME-EDWARD SUNDERLAND
   - Yes detective, I shall be better in the future.
   - END
+  cookingCompleted: []
 --- !u!1 &338524922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1662,7 @@ GameObject:
   - component: {fileID: 1050638846}
   - component: {fileID: 1050638849}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: talk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

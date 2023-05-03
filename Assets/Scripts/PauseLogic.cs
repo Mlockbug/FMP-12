@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseLogic : MonoBehaviour {
 	int count;
@@ -21,13 +22,17 @@ public class PauseLogic : MonoBehaviour {
 
 	void Update() {
 		thisCanvas.worldCamera = Camera.main;
+		if (Input.GetKeyDown(KeyCode.Semicolon) && SceneManager.GetActiveScene().buildIndex != 0) {
+			pauseMenu.SetActive(true);
+		}
 	}
 
-	void LoadMainMenu() {
-
+	public void LoadMainMenu() {
+		pauseMenu.SetActive(false);
+		SceneManager.LoadScene(0);
 	}
 
-	void Resume() {
-
+	public void Resume() {
+		pauseMenu.SetActive(false);
 	}
 }
