@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 176363726}
   - component: {fileID: 176363725}
   m_Layer: 5
-  m_Name: Play
+  m_Name: Play game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1405,7 +1405,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokerDone: 0
+  canPlayPoker: 0
   cookingDone: 0
+  canPlayCooking: 0
+  childDone: 0
+  canPlayChild: 0
 --- !u!4 &1822573661
 Transform:
   m_ObjectHideFlags: 0

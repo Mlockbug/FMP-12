@@ -69,14 +69,16 @@ public class DialogueLogic : MonoBehaviour {
 	}
 
 	public void Speak(Dialogue text) {
-		switch (SceneManager.GetActiveScene().buildIndex) {
-			case 2 when checklist.pokerDone:
-				text = pokerText;
-				break;
-			case 4 when checklist.cookingDone:
-				text = cookingText; 
-				break;
-			//will have more when more dialogues get implemented
+		if (checklist.minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1]) {
+			switch (SceneManager.GetActiveScene().buildIndex) {
+				case 2:
+					text = pokerText;
+					break;
+				case 4:
+					text = cookingText;
+					break;
+					//will have more when more dialogues get implemented
+			}
 		}
 		continueText = true;
 		mainUI.SetActive(false);

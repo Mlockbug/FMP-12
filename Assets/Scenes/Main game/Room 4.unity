@@ -484,7 +484,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 118540057}
   m_OnClick:
     m_PersistentCalls:
@@ -1386,18 +1386,19 @@ MonoBehaviour:
   - SPRITE-Idle
   - "Do you know why I\u2019m here?Do you know why I\u2019m here?"
   - NAME-Gus
-  - SPRITE-Sad
+  - SPRITE-Hand behind head_ECS
   - "I assume it\u2019s about the passing of poor Lady Carter."
   - NAME-Detective
   - "You\u2019d assume correctly."
   - NAME-Gus
+  - SPRITE-Idle_ECS
   - "Isn\u2019t it awful? Well, that\u2019s why life is precious, it comes and goes
     just like that. Death is something we\u2019ll all experience, may as well accept
     it. "
   - NAME-Detective
   - "That\u2019s one way to look at it I suppose."
   - NAME-Gus
-  - SPRITE-Idle
+  - SPRITE-Idle_EC
   - "Detective, I don\u2019t suppose you could help me prepare dinner?"
   - NAME-Detective
   - "Hm, I don\u2019t see why not. (maybe he\u2019ll be more willing to talk)"

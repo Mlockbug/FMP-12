@@ -66,7 +66,7 @@ public class CookingLogic : MonoBehaviour {
 					inText = true;
 				}
 				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 2) {
-					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().cookingDone = true;
+					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(4);
 					SceneManager.LoadScene(4);
 				}
 				break;

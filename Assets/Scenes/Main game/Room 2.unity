@@ -822,7 +822,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 530965972}
   m_OnClick:
     m_PersistentCalls:
@@ -1662,7 +1662,7 @@ GameObject:
   - component: {fileID: 1050638846}
   - component: {fileID: 1050638849}
   m_Layer: 5
-  m_Name: talk
+  m_Name: Talk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
