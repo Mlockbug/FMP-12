@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main game/Room 4.unity
     guid: 763e68678221d4d4993eb70e42ca9301
   - enabled: 1
+    path: Assets/Scenes/Main game/Room 5.unity
+    guid: 56d3a19af446a644388513ca121c1820
+  - enabled: 1
     path: Assets/Scenes/Minigames/Poker.unity
     guid: 74fe891de3ca75144bd04839577000e7
   - enabled: 1
