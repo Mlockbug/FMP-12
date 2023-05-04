@@ -103,7 +103,7 @@ public class DialogueLogic : MonoBehaviour {
 
 	void CreateDialogue() {
 		//doing this here to not clutter start
-		pokerText = gameObject.AddComponent<Dialogue>(); pokerText.text = pokerCompleted;
-		cookingText = gameObject.AddComponent<Dialogue>(); cookingText.text = cookingCompleted;
+		pokerText = gameObject.AddComponent<Dialogue>();	pokerText.text = pokerCompleted;
+		cookingText = gameObject.AddComponent<Dialogue>();	cookingText.text = cookingCompleted;
 	}
 }

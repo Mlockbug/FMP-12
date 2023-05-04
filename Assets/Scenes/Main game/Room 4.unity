@@ -1401,7 +1401,7 @@ MonoBehaviour:
   - SPRITE-Idle_EC
   - "Detective, I don\u2019t suppose you could help me prepare dinner?"
   - NAME-Detective
-  - "Hm, I don\u2019t see why not. (maybe he\u2019ll be more willing to talk)"
+  - "Hm, I don\u2019t see why not. (Maybe he\u2019ll be more willing to talk)"
   - END
 --- !u!114 &701415420
 MonoBehaviour:

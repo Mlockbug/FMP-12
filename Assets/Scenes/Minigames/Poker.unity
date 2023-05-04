@@ -4115,7 +4115,10 @@ MonoBehaviour:
   startingText:
   - END
   checklist: {fileID: 0}
+  currentSprite: {fileID: 1761974359}
+  sprites: []
   pokerCompleted: []
+  cookingCompleted: []
 --- !u!4 &1414379606
 Transform:
   m_ObjectHideFlags: 0
