@@ -19,10 +19,9 @@ public class DialogueLogic : MonoBehaviour {
 	public GameObject[] sprites;
 
 	[Header("Minigame completed dialogue")]
-	public string[] pokerCompleted;
-	Dialogue pokerText;
-	public string[] cookingCompleted;
-	Dialogue cookingText;
+	public string[] pokerCompleted;		Dialogue pokerText;
+	public string[] cookingCompleted;	Dialogue cookingText;
+	public string[] butlerCompleted;	Dialogue butlerText;
 
 	private void Start() {
 		CreateDialogue();
@@ -77,6 +76,9 @@ public class DialogueLogic : MonoBehaviour {
 				case 4:
 					text = cookingText;
 					break;
+				case 5:
+					text = butlerText;
+					break;
 					//will have more when more dialogues get implemented
 			}
 		}
@@ -105,5 +107,6 @@ public class DialogueLogic : MonoBehaviour {
 		//doing this here to not clutter start
 		pokerText = gameObject.AddComponent<Dialogue>();	pokerText.text = pokerCompleted;
 		cookingText = gameObject.AddComponent<Dialogue>();	cookingText.text = cookingCompleted;
+		butlerText = gameObject.AddComponent<Dialogue>();	butlerText.text = butlerCompleted;
 	}
 }

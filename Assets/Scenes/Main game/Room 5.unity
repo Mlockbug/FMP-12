@@ -1296,10 +1296,12 @@ MonoBehaviour:
   - {fileID: 89690787}
   - {fileID: 749725026}
   pokerCompleted: []
-  cookingCompleted:
-  - NAME-Gus
+  cookingCompleted: []
+  butlerCompleted:
+  - NAME-Butler
   - SPRITE-Idle
-  - "You might want to have a word with the Butler, he\u2019ll know more than I do."
+  - "There\u2019s not much more I can tell you but perhaps you could ask young Miss
+    Penelope if she\u2019s feeling up to it."
   - END
 --- !u!1 &787053728
 GameObject:
