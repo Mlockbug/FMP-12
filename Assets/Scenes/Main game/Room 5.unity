@@ -681,7 +681,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 548700001}
         m_TargetAssemblyTypeName: MoveLogic, Assembly-CSharp
-        m_MethodName: PlayCooking
+        m_MethodName: PlayCleaning
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -7,6 +7,7 @@ TagManager:
   - Checklist
   - Cursor
   - PauseMenu
+  - Objects
   layers:
   - Default
   - TransparentFX
