@@ -22,6 +22,7 @@ public class DialogueLogic : MonoBehaviour {
 	public string[] pokerCompleted;		Dialogue pokerText;
 	public string[] cookingCompleted;	Dialogue cookingText;
 	public string[] butlerCompleted;	Dialogue butlerText;
+	public string[] childCompleted;		Dialogue childText;
 
 	private void Start() {
 		CreateDialogue();
@@ -68,18 +69,20 @@ public class DialogueLogic : MonoBehaviour {
 	}
 
 	public void Speak(Dialogue text) {
-		if (checklist.minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1]) {
-			switch (SceneManager.GetActiveScene().buildIndex) {
-				case 2:
-					text = pokerText;
-					break;
-				case 4:
-					text = cookingText;
-					break;
-				case 5:
-					text = butlerText;
-					break;
-					//will have more when more dialogues get implemented
+		if (SceneManager.GetActiveScene().buildIndex < 7) {
+			if (checklist.minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1]) {
+				switch (SceneManager.GetActiveScene().buildIndex) {
+					case 2:
+						text = pokerText;
+						break;
+					case 4:
+						text = cookingText;
+						break;
+					case 5:
+						text = butlerText;
+						break;
+						//will have more when more dialogues get implemented
+				}
 			}
 		}
 		continueText = true;
@@ -108,5 +111,6 @@ public class DialogueLogic : MonoBehaviour {
 		pokerText = gameObject.AddComponent<Dialogue>();	pokerText.text = pokerCompleted;
 		cookingText = gameObject.AddComponent<Dialogue>();	cookingText.text = cookingCompleted;
 		butlerText = gameObject.AddComponent<Dialogue>();	butlerText.text = butlerCompleted;
+		childText= gameObject.AddComponent<Dialogue>();		childText.text = childCompleted;
 	}
 }

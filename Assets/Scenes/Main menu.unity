@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 377120837}
   - component: {fileID: 377120839}
   - component: {fileID: 377120838}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cursor
   m_TagString: Cursor
   m_Icon: {fileID: 0}

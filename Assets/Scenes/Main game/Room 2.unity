@@ -433,11 +433,13 @@ MonoBehaviour:
   cont: {fileID: 1231552976}
   startingText:
   - NAME-EDWARD SUNDERLAND
+  - SPRITE-Idle 1
   - Ah Detective, to what do I owe the pleasure?
   - NAME-DETECTIVE
   - "You know why I\u2019m here, and I can assure you there is nothing pleasurable
     about this situation."
   - NAME-EDWARD SUNDERLAND
+  - SPRITE-Idle 2
   - Trust me I know that more than anyone in this house.
   - END
   checklist: {fileID: 0}
@@ -452,12 +454,15 @@ MonoBehaviour:
   - {fileID: 555056682}
   pokerCompleted:
   - NAME-DETECTIVE
+  - SPRITE-Devastated
   - I hope you realise now where your actions have led you.
   - Or more importantly, led her.
   - NAME-EDWARD SUNDERLAND
   - Yes detective, I shall be better in the future.
   - END
   cookingCompleted: []
+  butlerCompleted: []
+  childCompleted: []
 --- !u!1 &338524922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,14 +1800,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text:
   - NAME-DETECTIVE
+  - SPRITE-Idle 1
   - Tell me about your relationship with Miss Carter.
   - NAME-EDWARD SUNDERLAND
+  - SPRITE-Idle 3
   - Woah, slow down Detective, I see you want to get straight to business but how
     about a game of my poker or two?
   - I only made it more accomodating for just 2 people.
   - NAME-DETECTIVE
   - "I don\u2019t think this is a good use of my time Mr Sunderland."
   - NAME-EDWARD SUNDERLAND
+  - SPRITE-Crying 2
   - "PLEASE Detective! Just one game and I\u2019ll tell you everything I know!"
   - NAME-DETECTIVE
   - "Fine\u2026"

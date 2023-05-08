@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuLogic : MonoBehaviour {
 	public void Play() {
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(6);
 	}
 	public void Quit() {
 		Application.Quit();

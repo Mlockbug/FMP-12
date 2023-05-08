@@ -8,6 +8,7 @@ public class CursorLogic : MonoBehaviour {
 	public Transform cursor;
 	public Animator myAnim;
 	GameObject thingToPickup;
+	bool send;
 	void Start() {
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Confined;
@@ -26,16 +27,30 @@ public class CursorLogic : MonoBehaviour {
 	void Update() {
 		cursor.position = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
 		cursor.position = new Vector3(cursor.position.x + 0.1f, cursor.position.y - 0.15f, 0f);
-		if (Input.GetMouseButtonDown(0))
+
+		//I made this at about 10pm, it probably shouldn't work, but it does, and i will not be changing it as a result
+		if (Input.GetMouseButtonDown(0)) {
 			myAnim.SetTrigger("click");
-		if (SceneManager.GetActiveScene().buildIndex == 9) {
+			send = true;
+		}
+		if (Input.GetMouseButtonUp(0)) {
+			thingToPickup = null;
+			send = false;
+		}
+		if (SceneManager.GetActiveScene().buildIndex == 9 && thingToPickup!= null && send) {
 			GameObject.Find("Cleaning Manager").GetComponent<CleaningLogic>().Pickup(thingToPickup);
+			thingToPickup = null;
 		}
 	}
-	void OnTriggerEnter2D(Collider2D collision) {
-		thingToPickup = collision.gameObject;
+	void OnTriggerStay2D(Collider2D collision) {
+		if (thingToPickup == null)
+			thingToPickup = collision.gameObject;
 	}
 	void OnTriggerExit2D(Collider2D collision) {
+		thingToPickup = null;
+	}
+
+	public void ClearPickup() {
 		thingToPickup = null;
 	}
 }
