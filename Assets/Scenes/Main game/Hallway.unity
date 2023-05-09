@@ -244,15 +244,6 @@ MonoBehaviour:
   nameDisplay: {fileID: 1691333693}
   cont: {fileID: 854977597}
   startingText:
-  - NAME-Butler
-  - SPRITE-Idle
-  - Hello Detective.
-  - NAME-Detective
-  - "Sorry Sir, I didn\u2019t catch your name."
-  - NAME-Butler
-  - SPRITE-Idle_EC
-  - "Wow, I\u2019m not usually the one referred to as \u2018Sir\u2019 around here,
-    that title usually falls to Mr. Sunderland. But, Jonathan will do."
   - END
   checklist: {fileID: 0}
   currentSprite: {fileID: 789801138}
@@ -265,12 +256,8 @@ MonoBehaviour:
   - {fileID: 2142756661}
   pokerCompleted: []
   cookingCompleted: []
-  butlerCompleted:
-  - NAME-Butler
-  - SPRITE-Idle
-  - "There\u2019s not much more I can tell you but perhaps you could ask young Miss
-    Penelope if she\u2019s feeling up to it."
-  - END
+  butlerCompleted: []
+  childCompleted: []
 --- !u!1 &348655390
 GameObject:
   m_ObjectHideFlags: 0

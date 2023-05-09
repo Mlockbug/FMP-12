@@ -3649,6 +3649,7 @@ MonoBehaviour:
   - If only there was something I could do to change it.
   - NAME-Detective
   - Thank you for your time.
+  - END
   pickingUp: 0
   textBox: {fileID: 1084945193}
 --- !u!4 &1055455599
@@ -7903,6 +7904,7 @@ MonoBehaviour:
   pokerCompleted: []
   cookingCompleted: []
   butlerCompleted: []
+  childCompleted: []
 --- !u!4 &2076054937
 Transform:
   m_ObjectHideFlags: 0

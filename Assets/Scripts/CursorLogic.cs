@@ -37,7 +37,7 @@ public class CursorLogic : MonoBehaviour {
 			thingToPickup = null;
 			send = false;
 		}
-		if (SceneManager.GetActiveScene().buildIndex == 9 && thingToPickup!= null && send) {
+		if (SceneManager.GetActiveScene().buildIndex == 11 && thingToPickup!= null && send) {
 			GameObject.Find("Cleaning Manager").GetComponent<CleaningLogic>().Pickup(thingToPickup);
 			thingToPickup = null;
 		}
