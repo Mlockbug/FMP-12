@@ -48,7 +48,8 @@ public class ConversationLogic : MonoBehaviour
     public void GoodOption(int meterLimit) {
         turn += 2;
         speaker.Speak(textOptions[turn]);
-        stress = meterLimit;
+        if (meterLimit!=0)
+            stress = meterLimit;
     }
 
 	public void BadOption(int meterIncrement) {
