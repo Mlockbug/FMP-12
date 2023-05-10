@@ -25,11 +25,8 @@ public class ChildLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (roundsWon== 5) {
-			//dialogue
-			//go to room
+			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(3);
 			SceneManager.LoadScene(3);
-			Debug.Log("done");
-			newRound= false;
 		}
 		if (newRound && !textBox.activeSelf) {
 			if (previousPosition == position)

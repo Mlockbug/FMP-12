@@ -11,6 +11,7 @@ public class ChecklistLogic : MonoBehaviour {
 	GameObject playButton;
 	GameObject talkButton;
 	bool cleared;
+	int activeScene;
 	void Start() {
 		foreach (GameObject x in GameObject.FindGameObjectsWithTag("Checklist"))
 			count++;
@@ -26,26 +27,27 @@ public class ChecklistLogic : MonoBehaviour {
 	private void Update() {
 		playButton = GameObject.Find("Play");
 		talkButton = GameObject.Find("Talk");
+		activeScene = SceneManager.GetActiveScene().buildIndex;
 		if (playButton != null)
-			playButton.GetComponent<Button>().interactable = minigamesActive[SceneManager.GetActiveScene().buildIndex - 1];
-		if (talkButton != null && !minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1])
+			playButton.GetComponent<Button>().interactable = minigamesActive[activeScene - 1];
+		if (talkButton != null && !minigamesCompleted[activeScene - 1])
 			talkButton.GetComponent<Button>().onClick.AddListener(ActivateMinigame);
-		if (SceneManager.GetActiveScene().buildIndex == 5 && !cleared)
-			if (minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1]) {
+		if (activeScene == 5 && !cleared)
+			if (minigamesCompleted[activeScene - 1]) {
 				GameObject.Find("Background uncleaned").SetActive(false);
 				cleared = true;
 			}
-		if (SceneManager.GetActiveScene().buildIndex != 5)
+		if (activeScene != 5)
 			cleared = false;
-		if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 6) {
-			if (minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1] && playButton != null) {
+		if (activeScene > 0 && activeScene < 6) {
+			if (minigamesCompleted[activeScene - 1] && playButton != null) {
 				playButton.GetComponent<Button>().interactable = false;
 			}
 		}
 	}
 
 	public void ActivateMinigame() {
-		minigamesActive[SceneManager.GetActiveScene().buildIndex - 1] = true;
+		minigamesActive[activeScene - 1] = true;
 	}
 	public void DeactivateMinigame(int minigame) {
 		minigame--;

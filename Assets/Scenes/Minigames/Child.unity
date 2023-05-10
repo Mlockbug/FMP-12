@@ -2191,12 +2191,13 @@ MonoBehaviour:
   cont: {fileID: 637734588}
   startingText: []
   checklist: {fileID: 0}
-  currentSprite: {fileID: 0}
+  currentSprite: {fileID: 1275377412}
   sprites: []
   pokerCompleted: []
   cookingCompleted: []
   butlerCompleted: []
   childCompleted: []
+  conversationCompleted: []
 --- !u!4 &1654532624
 Transform:
   m_ObjectHideFlags: 0

@@ -19,10 +19,11 @@ public class DialogueLogic : MonoBehaviour {
 	public GameObject[] sprites;
 
 	[Header("Minigame completed dialogue")]
-	public string[] pokerCompleted;		Dialogue pokerText;
-	public string[] cookingCompleted;	Dialogue cookingText;
-	public string[] butlerCompleted;	Dialogue butlerText;
-	public string[] childCompleted;		Dialogue childText;
+	public string[] pokerCompleted;			Dialogue pokerText;
+	public string[] cookingCompleted;		Dialogue cookingText;
+	public string[] butlerCompleted;		Dialogue butlerText;
+	public string[] childCompleted;			Dialogue childText;
+	public string[] conversationCompleted;	Dialogue conversationText;
 
 	private void Start() {
 		CreateDialogue();
@@ -54,6 +55,9 @@ public class DialogueLogic : MonoBehaviour {
 					textBox.SetActive(false);
 					mainUI.SetActive(true);
 				}
+				else if (diagString == "PROMPT") {
+					GameObject.Find("Conversation Manager").GetComponent<ConversationLogic>().ActivateButtons();
+				}
 				else if (diagString.Contains("SPRITE-")) {
 					foreach(GameObject x in sprites)
 						if(x.name == diagString.Split('-')[1]) {
@@ -72,8 +76,14 @@ public class DialogueLogic : MonoBehaviour {
 		if (SceneManager.GetActiveScene().buildIndex < 7) {
 			if (checklist.minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1]) {
 				switch (SceneManager.GetActiveScene().buildIndex) {
+					case 1:
+						text = conversationText;
+						break;
 					case 2:
 						text = pokerText;
+						break;
+					case 3:
+						text = childText;
 						break;
 					case 4:
 						text = cookingText;
@@ -108,9 +118,10 @@ public class DialogueLogic : MonoBehaviour {
 
 	void CreateDialogue() {
 		//doing this here to not clutter start
-		pokerText = gameObject.AddComponent<Dialogue>();	pokerText.text = pokerCompleted;
-		cookingText = gameObject.AddComponent<Dialogue>();	cookingText.text = cookingCompleted;
-		butlerText = gameObject.AddComponent<Dialogue>();	butlerText.text = butlerCompleted;
-		childText= gameObject.AddComponent<Dialogue>();		childText.text = childCompleted;
+		pokerText = gameObject.AddComponent<Dialogue>();		pokerText.text = pokerCompleted;
+		cookingText = gameObject.AddComponent<Dialogue>();		cookingText.text = cookingCompleted;
+		butlerText = gameObject.AddComponent<Dialogue>();		butlerText.text = butlerCompleted;
+		childText= gameObject.AddComponent<Dialogue>();			childText.text = childCompleted;
+		conversationText= gameObject.AddComponent<Dialogue>();	conversationText.text = conversationCompleted;
 	}
 }

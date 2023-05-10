@@ -4356,9 +4356,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1065927262}
   mainUI: {fileID: 1761974359}
-  textDisplay: {fileID: 0}
-  nameDisplay: {fileID: 0}
-  cont: {fileID: 0}
+  textDisplay: {fileID: 984623073}
+  nameDisplay: {fileID: 356125777}
+  cont: {fileID: 798179787}
   startingText:
   - END
   checklist: {fileID: 0}
@@ -4368,6 +4368,7 @@ MonoBehaviour:
   cookingCompleted: []
   butlerCompleted: []
   childCompleted: []
+  conversationCompleted: []
 --- !u!4 &1414379606
 Transform:
   m_ObjectHideFlags: 0

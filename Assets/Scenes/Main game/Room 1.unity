@@ -2425,7 +2425,21 @@ MonoBehaviour:
   textDisplay: {fileID: 401666535}
   nameDisplay: {fileID: 1760358092}
   cont: {fileID: 309205106}
-  startingText: []
+  startingText:
+  - NAME-Detective
+  - SPRITE-Idle
+  - Miss Sunderla-
+  - NAME-Athena
+  - You.
+  - NAME-Detective
+  - Pardon me?
+  - NAME-Athena
+  - SPRITE-Anger 1
+  - 'YOU, you come into MY house and rummage around MY things demanding answers from
+    MY FAMILY!? '
+  - NAME-Detective
+  - (Well this should be interesting)
+  - END
   checklist: {fileID: 0}
   currentSprite: {fileID: 1692417881}
   sprites:
@@ -2440,6 +2454,11 @@ MonoBehaviour:
   cookingCompleted: []
   butlerCompleted: []
   childCompleted: []
+  conversationCompleted:
+  - NAME-Athena
+  - SPRITE-Idle
+  - Now leave me be, I have something to attend to outside.
+  - END
 --- !u!1 &1937931213
 GameObject:
   m_ObjectHideFlags: 0

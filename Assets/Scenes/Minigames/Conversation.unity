@@ -1263,17 +1263,122 @@ MonoBehaviour:
   - {fileID: 527657365}
   - {fileID: 202339117}
   - {fileID: 1367365221}
-  startingDiag: []
-  goodDiag1: []
-  badDiag1: []
-  goodDiag2: []
-  badDiag2: []
-  goodDiag3: []
-  badDiag3: []
-  goodDiag4: []
-  badDiag4: []
-  goodDiag5: []
-  badDiag5: []
+  startingDiag:
+  - PROMPT
+  - END
+  goodDiag1:
+  - NAME-Detective
+  - "Miss Sunderland, I\u2019m afraid I have to be here."
+  - NAME-Athena
+  - "I wouldn\u2019t care if you were sent here by the Queen herself, GET OUT OF
+    MY HOUSE!"
+  - PROMPT
+  - END
+  badDiag1:
+  - NAME-Detective
+  - May I remind you that I have a warrant and it is my job, by law, to be here.
+  - NAME-Athena
+  - "I wouldn\u2019t care if you were sent here by the Queen herself, GET OUT OF
+    MY HOUSE! "
+  - PROMPT
+  - END
+  goodDiag2:
+  - NAME-Detective
+  - "I\u2019m sorry but I have to ask you some questions and the quicker I do, the
+    quicker we can be out of each other\u2019s way."
+  - NAME-Athena
+  - I suggest you get out of here before I call the Police!
+  - PROMPT
+  - END
+  badDiag2:
+  - NAME-Detective
+  - Trust me I want to get out of this house more than anyone but the quicker you
+    answer, the quicker we can both get out of this mess.
+  - NAME-Athena
+  - I suggest you get out of here before I call the Police!
+  - PROMPT
+  - END
+  goodDiag3:
+  - NAME-Detective
+  - "That won\u2019t be necessary."
+  - NAME-Athena
+  - "If you\u2019re here about the girl you can talk to my \u2018DARLING\u2019 husband!"
+  - PROMPT
+  - END
+  badDiag3:
+  - NAME-Detective
+  - I am the police.
+  - NAME-Athena
+  - "If you\u2019re here about the girl you can talk to my \u2018DARLING\u2019 husband!"
+  - PROMPT
+  - END
+  goodDiag4:
+  - NAME-Detective
+  - "You\u2019re the only one in this house I haven\u2019t talked to yet, your husband
+    has already been questioned."
+  - "Out of interest, what was your husband\u2019s relationship with Miss Carter
+    like?"
+  - NAME-Athena
+  - WHERE DID YOU PUT THEM?!
+  - NAME-Detective
+  - Excuse me? Where did I put what?
+  - NAME-Athena
+  - "YOU KNOW EXACTLY WHAT I\u2019M TALKING ABOUT!"
+  - PROMPT
+  - END
+  badDiag4:
+  - NAME-Detective
+  - I assure you I already have, it was interesting to say the least.
+  - "Out of interest, what was your husband\u2019s relationship with Miss Carter
+    like?"
+  - NAME-Athena
+  - WHERE DID YOU PUT THEM?!
+  - NAME-Detective
+  - Excuse me? Where did I put what?
+  - NAME-Athena
+  - "YOU KNOW EXACTLY WHAT I\u2019M TALKING ABOUT!"
+  - PROMPT
+  - END
+  goodDiag5:
+  - NAME-Detective
+  - "I\u2019m afraid I don\u2019t, could you please elaborate?"
+  - NAME-Athena
+  - "THE PILLS FOR GOD\u2019S SAKE!"
+  - NAME-Detective
+  - "Pills? (Like the ones in Miss Carter\u2019s room?) Oh dear. Miss Sunderland,
+    how long have you been without these pills?"
+  - NAME-Athena
+  - "Goodness knows! I don\u2019t care, just get me some more!"
+  - NAME-Detective
+  - "Did you losing these pills happen to coincide with Miss Carter\u2019s passing?"
+  - NAME-Athena
+  - "I don\u2019t care about that wretched girl, ruining my marriage, stealing my
+    only child! If anything I\u2019m glad she\u2019s gone!"
+  - NAME-Detective
+  - "Miss Sunderland. I find your lack of concern for your own employees incredibly
+    telling. I already know everything I need to know about you simply from the way
+    you\u2019ve spoken today."
+  - END
+  badDiag5:
+  - NAME-Detective
+  - "What are you talking about Ma\u2019am?"
+  - NAME-Athena
+  - "THE PILLS FOR GOD\u2019S SAKE!"
+  - NAME-Detective
+  - "Pills? (Like the ones in Miss Carter\u2019s room?) Oh dear. Miss Sunderland,
+    how long have you been without these pills?"
+  - NAME-Athena
+  - "Goodness knows! I don\u2019t care, just get me some more!"
+  - NAME-Detective
+  - "Did you losing these pills happen to coincide with Miss Carter\u2019s passing?"
+  - NAME-Athena
+  - "I don\u2019t care about that wretched girl, ruining my marriage, stealing my
+    only child! If anything I\u2019m glad she\u2019s gone!"
+  - NAME-Detective
+  - "Miss Sunderland. I find your lack of concern for your own employees incredibly
+    telling. I already know everything I need to know about you simply from the way
+    you\u2019ve spoken today."
+  - END
 --- !u!1 &697960893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,7 +2433,9 @@ MonoBehaviour:
   textDisplay: {fileID: 1899294469}
   nameDisplay: {fileID: 253645666}
   cont: {fileID: 1980611444}
-  startingText: []
+  startingText:
+  - PROMPT
+  - END
   checklist: {fileID: 0}
   currentSprite: {fileID: 1059568430}
   sprites:
@@ -2343,6 +2450,7 @@ MonoBehaviour:
   cookingCompleted: []
   butlerCompleted: []
   childCompleted: []
+  conversationCompleted: []
 --- !u!4 &1107369053
 Transform:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ public class CleaningLogic : MonoBehaviour {
 			doneProgressDiag = true;
 		}
 		else if (!textBox.activeSelf && doneCompleteDiag) {
-			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().minigamesCompleted[4] = true;
+			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(5);
 			SceneManager.LoadScene(5);
 		}
 		else if (!textBox.activeSelf && objectsCount == 27) {

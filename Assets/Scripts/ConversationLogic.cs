@@ -36,12 +36,9 @@ public class ConversationLogic : MonoBehaviour
     {
         if (speaker == null)
             speaker = GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>();
-        if (textBox.activeSelf) {
-            if (turn >= 10) {
-                SceneManager.LoadScene(1);
-            }
-            else
-                DisableButtons();
+        if (!textBox.activeSelf && turn >= 10) {
+            GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(1);
+            SceneManager.LoadScene(1);
         }
         Mathf.Clamp(stress, 0, 4);
         stressLevels[stress].SetActive(true);
@@ -50,7 +47,7 @@ public class ConversationLogic : MonoBehaviour
     public void GoodOption(int meterLimit) {
         turn += 2;
         speaker.Speak(textOptions[turn]);
-        if (meterLimit!=0)
+        if (meterLimit!=0 && meterLimit>stress)
             stress = meterLimit;
     }
 
@@ -61,10 +58,13 @@ public class ConversationLogic : MonoBehaviour
         stress += meterIncrement;
 	}
 
-    void DisableButtons() {
+    public void DisableButtons() {
         foreach(GameObject x in buttons) {
             x.SetActive(false);
         }
-        buttons[Mathf.FloorToInt(turn / 2)].SetActive(true);
     }
+
+    public void ActivateButtons() {
+		buttons[Mathf.FloorToInt(turn / 2)].SetActive(true);
+	}
 }

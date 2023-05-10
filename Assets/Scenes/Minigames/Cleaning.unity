@@ -7734,13 +7734,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1084945193}
   mainUI: {fileID: 377564167}
-  textDisplay: {fileID: 0}
-  nameDisplay: {fileID: 0}
-  cont: {fileID: 0}
+  textDisplay: {fileID: 1912235395}
+  nameDisplay: {fileID: 1411411742}
+  cont: {fileID: 2102295663}
   startingText:
   - END
   checklist: {fileID: 0}
-  currentSprite: {fileID: 377564167}
+  currentSprite: {fileID: 491141160}
   sprites:
   - {fileID: 491141160}
   - {fileID: 1120249974}
@@ -7753,6 +7753,7 @@ MonoBehaviour:
   cookingCompleted: []
   butlerCompleted: []
   childCompleted: []
+  conversationCompleted: []
 --- !u!4 &2076054937
 Transform:
   m_ObjectHideFlags: 0
