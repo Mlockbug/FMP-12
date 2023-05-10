@@ -36,4 +36,8 @@ public class MoveLogic : MonoBehaviour {
 	public void PlayCleaning() {
 		SceneManager.LoadScene("Cleaning");
 	}
+
+	public void PlayConversation() {
+		SceneManager.LoadScene("Conversation");
+	}
 }

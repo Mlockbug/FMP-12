@@ -49,12 +49,13 @@ public class CleaningLogic : MonoBehaviour {
 			dialogueManager.Speak(progressDiag);
 			doneProgressDiag = true;
 		}
+		else if (!textBox.activeSelf && doneCompleteDiag) {
+			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().minigamesCompleted[4] = true;
+			SceneManager.LoadScene(5);
+		}
 		else if (!textBox.activeSelf && objectsCount == 27) {
 			dialogueManager.Speak(completeDiag);
 			doneCompleteDiag = true;
-		}
-		else if (!textBox.activeSelf && doneCompleteDiag) {
-			SceneManager.LoadScene(5);
 		}
 	}
 

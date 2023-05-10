@@ -10,6 +10,7 @@ public class ChecklistLogic : MonoBehaviour {
 	int count;
 	GameObject playButton;
 	GameObject talkButton;
+	bool cleared;
 	void Start() {
 		foreach (GameObject x in GameObject.FindGameObjectsWithTag("Checklist"))
 			count++;
@@ -19,6 +20,7 @@ public class ChecklistLogic : MonoBehaviour {
 			DontDestroyOnLoad(this);
 			this.name = "Checklist DDOL";
 		}
+		cleared = false;
 	}
 
 	private void Update() {
@@ -28,6 +30,18 @@ public class ChecklistLogic : MonoBehaviour {
 			playButton.GetComponent<Button>().interactable = minigamesActive[SceneManager.GetActiveScene().buildIndex - 1];
 		if (talkButton != null && !minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1])
 			talkButton.GetComponent<Button>().onClick.AddListener(ActivateMinigame);
+		if (SceneManager.GetActiveScene().buildIndex == 5 && !cleared)
+			if (minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1]) {
+				GameObject.Find("Background uncleaned").SetActive(false);
+				cleared = true;
+			}
+		if (SceneManager.GetActiveScene().buildIndex != 5)
+			cleared = false;
+		if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 6) {
+			if (minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1] && playButton != null) {
+				playButton.GetComponent<Button>().interactable = false;
+			}
+		}
 	}
 
 	public void ActivateMinigame() {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ConversationLogic : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class ConversationLogic : MonoBehaviour
     int turn;
     int stress;
     Dialogue[] textOptions;
-    DialogueLogic speaker;
+    DialogueLogic speaker = null;
     string[][] allDialogue;
 
     [Header("Dialogue")]
@@ -24,7 +25,6 @@ public class ConversationLogic : MonoBehaviour
     void Start()
     {
         allDialogue = new string[][]{startingDiag, badDiag1, goodDiag1, badDiag2, goodDiag2, badDiag3, goodDiag3, badDiag4, goodDiag4, badDiag5, goodDiag5};
-        speaker = GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>();
         for (int i = 0; i == 10; i++) {
             textOptions[i] = gameObject.AddComponent<Dialogue>();
             textOptions[i].text = allDialogue[i];
@@ -34,9 +34,11 @@ public class ConversationLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (speaker == null)
+            speaker = GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>();
         if (textBox.activeSelf) {
             if (turn >= 10) {
-                //load old scene
+                SceneManager.LoadScene(1);
             }
             else
                 DisableButtons();
