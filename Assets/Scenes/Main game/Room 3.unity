@@ -376,6 +376,7 @@ MonoBehaviour:
   - SPRITE-Thinking 2
   - Sorry Mister, I think I ran out of hiding spots!
   - END
+  conversationCompleted: []
 --- !u!1 &312545662
 GameObject:
   m_ObjectHideFlags: 0

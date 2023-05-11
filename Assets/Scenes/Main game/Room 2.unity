@@ -456,6 +456,7 @@ MonoBehaviour:
   cookingCompleted: []
   butlerCompleted: []
   childCompleted: []
+  conversationCompleted: []
 --- !u!1 &338524922
 GameObject:
   m_ObjectHideFlags: 0
