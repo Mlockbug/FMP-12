@@ -351,10 +351,10 @@ MonoBehaviour:
   - SPRITE-Excited
   - Hey Mister! You wanna play hide and seek?!
   - NAME-Detective
-  - "Sorry kid, I\u2019m not here to play games."
+  - Sorry kid, I'm not here to play games.
   - NAME-Penelope
   - SPRITE-Angry
-  - "UGH, you\u2019re no fun, Helin would always want to play but she\u2019s on holiday. "
+  - 'UGH, you''re no fun, Helin would always want to play but she''s on holiday. '
   - END
   checklist: {fileID: 0}
   currentSprite: {fileID: 312545662}
@@ -1179,27 +1179,26 @@ MonoBehaviour:
   - Holiday? Where do you think Helin is right now?
   - NAME-Penelope
   - SPRITE-Thinking 2
-  - "Well, I haven\u2019t seen her in ages so what else would she be doing? I figured
-    she must have just gone away somewhere."
+  - Well, I haven't seen her in ages so what else would she be doing? I figured she
+    must have just gone away somewhere.
   - NAME-Detective
   - I see. And how do you feel about her being away?
   - NAME-Penelope
   - SPRITE-Worried
   - I miss her already!
   - SPRITE-Idle 2
-  - "But I know she\u2019ll come back, she always does."
+  - But I know she'll come back, she always does.
   - NAME-Detective
-  - "Is this the first time she\u2019s randomly \u2018gone away\u2019?"
+  - Is this the first time she's randomly 'gone away'?
   - NAME-Penelope
   - SPRITE-Confused
-  - "What\u2019s with all the questions Mister?"
+  - What's with all the questions Mister?
   - SPRITE-Angry
   - I wanna play!
   - SPRITE-Idle 1
-  - "I KNOW! I\u2019ll answer your dumb questions if you play hide and seek with
-    me!"
+  - I KNOW! I'll answer your dumb questions if you play hide and seek with me!
   - NAME-Detective
-  - "Fine. (I\u2019m getting tired of all these menial tasks)"
+  - Fine. (I'm getting tired of all these menial tasks)
   - NAME-Penelope
   - SPRITE-Excited
   - YAY!

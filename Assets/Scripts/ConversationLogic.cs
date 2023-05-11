@@ -10,9 +10,12 @@ public class ConversationLogic : MonoBehaviour
     public GameObject[] stressLevels;
     int turn;
     int stress;
-    Dialogue[] textOptions;
+    Dialogue[] textOptions = new Dialogue[10];
     DialogueLogic speaker = null;
     string[][] allDialogue;
+    public GameObject idleSprite;
+    public GameObject angerSprite1;
+    public GameObject angerSprite2;
 
     [Header("Dialogue")]
     public string[] startingDiag;
@@ -25,13 +28,12 @@ public class ConversationLogic : MonoBehaviour
     void Start()
     {
         allDialogue = new string[][]{startingDiag, badDiag1, goodDiag1, badDiag2, goodDiag2, badDiag3, goodDiag3, badDiag4, goodDiag4, badDiag5, goodDiag5};
-        for (int i = 0; i == 10; i++) {
+        for (int i = 0; i < 10; i++) {
             textOptions[i] = gameObject.AddComponent<Dialogue>();
             textOptions[i].text = allDialogue[i];
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (speaker == null)
@@ -40,22 +42,26 @@ public class ConversationLogic : MonoBehaviour
             GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(1);
             SceneManager.LoadScene(1);
         }
+        if (stress == 4 && !textBox.activeSelf && !(turn >=10))
+            SceneManager.LoadScene(1);
         Mathf.Clamp(stress, 0, 4);
         stressLevels[stress].SetActive(true);
     }
 
     public void GoodOption(int meterLimit) {
+        DisableButtons();
         turn += 2;
         speaker.Speak(textOptions[turn]);
         if (meterLimit!=0 && meterLimit>stress)
             stress = meterLimit;
     }
 
-	public void BadOption(int meterIncrement) {
-		turn ++;
+	public void BadOption() {
+        DisableButtons();
+        turn ++;
 		speaker.Speak(textOptions[turn]);
         turn ++;
-        stress += meterIncrement;
+        stress++;
 	}
 
     public void DisableButtons() {

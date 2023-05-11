@@ -443,7 +443,6 @@ GameObject:
   - component: {fileID: 264634038}
   - component: {fileID: 264634037}
   - component: {fileID: 264634036}
-  - component: {fileID: 264634035}
   m_Layer: 5
   m_Name: Talk
   m_TagString: Untagged
@@ -471,29 +470,6 @@ RectTransform:
   m_AnchoredPosition: {x: -175, y: -160}
   m_SizeDelta: {x: 240, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &264634035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264634033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f189fd454f2f874bbd1897b48f581fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text:
-  - NAME-The empty void
-  - SPRITE-Idle 2
-  - placeholder
-  - SPRITE-Idle 3
-  - placeholder2
-  - SPRITE-Crying 1
-  - place holder space
-  - SPRITE-Crying 2
-  - place holder space 2
-  - END
 --- !u!114 &264634036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,15 +2122,11 @@ MonoBehaviour:
   - (Well this is interesting, let's try and keep her calm)
   - END
   checklist: {fileID: 0}
-  currentSprite: {fileID: 0}
+  currentSprite: {fileID: 592632207}
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 592632207}
+  - {fileID: 1917604357}
+  - {fileID: 334210340}
   pokerCompleted: []
   cookingCompleted: []
   butlerCompleted: []

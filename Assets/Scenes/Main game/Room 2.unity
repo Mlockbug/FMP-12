@@ -425,13 +425,13 @@ MonoBehaviour:
   nameDisplay: {fileID: 751367990}
   cont: {fileID: 1989885229}
   startingText:
-  - NAME-EDWARD SUNDERLAND
+  - NAME-Edward
   - SPRITE-Idle 1
   - Ah Detective, to what do I owe the pleasure?
-  - NAME-DETECTIVE
-  - "You know why I\u2019m here, and I can assure you there is nothing pleasurable
-    about this situation."
-  - NAME-EDWARD SUNDERLAND
+  - NAME-Detective
+  - You know why I'm here, and I can assure you there is nothing pleasurable about
+    this situation.
+  - NAME-Edward
   - SPRITE-Idle 2
   - Trust me I know that more than anyone in this house.
   - END
@@ -446,12 +446,11 @@ MonoBehaviour:
   - {fileID: 108161309}
   - {fileID: 555056682}
   pokerCompleted:
-  - NAME-DETECTIVE
+  - NAME-Edward
   - SPRITE-Devastated
-  - I hope you realise now where your actions have led you.
-  - Or more importantly, led her.
-  - NAME-EDWARD SUNDERLAND
-  - Yes detective, I shall be better in the future.
+  - I am sorry detective, I shall be better in the future.
+  - NAME-Detective
+  - (All that's left is Athena, then I can go home)
   - END
   cookingCompleted: []
   butlerCompleted: []
@@ -2034,20 +2033,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - NAME-DETECTIVE
+  - NAME-Detective
   - SPRITE-Idle 1
   - Tell me about your relationship with Miss Carter.
-  - NAME-EDWARD SUNDERLAND
+  - NAME-Edward
   - SPRITE-Idle 3
   - Woah, slow down Detective, I see you want to get straight to business but how
-    about a game of my poker or two?
-  - I only made it more accomodating for just 2 people.
-  - NAME-DETECTIVE
-  - "I don\u2019t think this is a good use of my time Mr Sunderland."
-  - NAME-EDWARD SUNDERLAND
+    about a game or two of my poker?
+  - I made it more accomodating for just 2 people.
+  - NAME-Detective
+  - I don't think this is a good use of my time Mr Sunderland.
+  - NAME-Edward
   - SPRITE-Crying 2
-  - "PLEASE Detective! Just one game and I\u2019ll tell you everything I know!"
-  - NAME-DETECTIVE
+  - PLEASE Detective! Just one game and I'll tell you everything I know!
+  - NAME-Detective
   - "Fine\u2026"
   - END
 --- !u!1 &1072373468

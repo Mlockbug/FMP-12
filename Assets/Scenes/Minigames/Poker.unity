@@ -282,18 +282,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - NAME-DETECTIVE
+  - NAME-Detective
   - Oftentimes?
-  - NAME-EDWARD SUNDERLAND
-  - "Well now, wouldn\u2019t be fair if I was the only one able to lose money would
-    it?"
-  - NAME-DETECTIVE
+  - NAME-Edward
+  - Well now, wouldn't be fair if I was the only one able to lose money would it?
+  - NAME-Detective
   - So you thought that taking money from the wages of someone you employ directly
     would be a good idea?
-  - "You\u2019re not gaining anything, simply saving some extra cash for your hungry
-    pockets."
-  - NAME-EDWARD SUNDERLAND
-  - "I suppose I\u2019ve never thought of it that way\u2026"
+  - You're not gaining anything, simply saving some extra cash for your hungry pockets.
+  - NAME-Edward
+  - "I suppose I've never thought of it that way\u2026"
   - END
 --- !u!1 &133853653
 GameObject:
@@ -690,10 +688,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - NAME-EDWARD SUNDERLAND
+  - NAME-Edward
   - Ah, I see you have run out of chips there detective.
-  - Normally this would mean you are out, but this is fun, so allow me to give you
-    some.
+  - Normally I would have to ask you to leave, but this is fun, so allow me to give
+    you some.
   - Try not to be as reckless this time.
   - END
 --- !u!1 &231408313
@@ -1843,7 +1841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - NAME-DETECTIVE
+  - NAME-Detective
   - I should probably entertain this.
   - END
 --- !u!1 &587056558
@@ -3008,20 +3006,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - NAME-DETECTIVE
+  - NAME-Detective
   - The evening before her death, did you play with her then?
-  - NAME-EDWARD SUNDERLAND
+  - NAME-Edward
   - I did.
-  - NAME-DETECTIVE
+  - NAME-Detective
   - Did you notice anything strange about her behaviour this evening?
-  - NAME-EDWARD SUNDERLAND
+  - NAME-Edward
   - Well, she did happen to go all in with her own money. It was my biggest win so
     far!
-  - NAME-DETECTIVE
-  - "So you claim to be \u2018close\u2019 with this employee of yours and yet you
-    leave her in total financial ruin?"
-  - "How ignorant do you have to be? You don\u2019t think that maybe there was a
-    reason she put her financial stability on the line?"
+  - NAME-Detective
+  - So you claim to be 'close' with this employee of yours and yet you leave her
+    in total financial ruin?
+  - How ignorant do you have to be? You don't think that maybe there was a reason
+    she put her financial stability on the line?
   - After that was gone she literally had nothing left to lose, apart from her life.
     Good day to you sir.
   - END
@@ -4242,15 +4240,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - NAME-DETECTIVE
+  - NAME-Detective
   - So, about your relationship with Miss Carter. Did you spend a lot of time together?
-  - NAME-EDWARD SUNDERLAND
+  - NAME-Edward
   - "Oh dearest Helin and \u2013 I mean, Miss Carter and I were rather close."
-  - "Whenever she\u2019d bring me my tea or latest post she\u2019d nearly always
-    stay for a round of poker, just as we\u2019re doing now!"
-  - NAME-DETECTIVE
+  - Whenever she'd bring me my tea or latest post she'd nearly always stay for a
+    round of poker, just as we're doing now!
+  - NAME-Detective
   - And these rounds of poker, you used real money?
-  - NAME-EDWARD SUNDERLAND
+  - NAME-Edward
   - Well, yes but oftentimes out of my own pocket.
   - END
 --- !u!1 &1413641796
