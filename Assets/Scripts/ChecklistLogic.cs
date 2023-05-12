@@ -53,5 +53,6 @@ public class ChecklistLogic : MonoBehaviour {
 		minigame--;
 		minigamesActive[minigame] = false;
 		minigamesCompleted[minigame] = true;
+		GameObject.Find("Pause canvas DDOL").GetComponent<PauseLogic>().checkmarks[minigame].color = Color.white;
 	}
 }

@@ -46,9 +46,9 @@ public class ConversationLogic : MonoBehaviour
             SceneManager.LoadScene(1);
         Mathf.Clamp(stress, 0, 4);
         stressLevels[stress].SetActive(true);
-        if (stress == 3)
+        if (stress == 2)
             angerSprite1.SetActive(true);
-        if (stress == 5)
+        if (stress == 4)
             angerSprite2.SetActive(true);
     }
 

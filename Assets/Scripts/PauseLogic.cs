@@ -8,6 +8,7 @@ public class PauseLogic : MonoBehaviour {
 	int count;
 	public Canvas thisCanvas;
 	public GameObject pauseMenu;
+	public Image[] checkmarks;
 	void Start() {
 		count = 0;
 		foreach (GameObject x in GameObject.FindGameObjectsWithTag("PauseMenu"))
