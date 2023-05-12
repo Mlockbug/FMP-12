@@ -46,6 +46,10 @@ public class ConversationLogic : MonoBehaviour
             SceneManager.LoadScene(1);
         Mathf.Clamp(stress, 0, 4);
         stressLevels[stress].SetActive(true);
+        if (stress == 3)
+            angerSprite1.SetActive(true);
+        if (stress == 5)
+            angerSprite2.SetActive(true);
     }
 
     public void GoodOption(int meterLimit) {

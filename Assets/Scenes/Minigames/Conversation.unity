@@ -1201,22 +1201,20 @@ MonoBehaviour:
   - NAME-Detective
   - Miss Sunderland, I'm afraid I have to be here.
   - NAME-Athena
-  - "I wouldn\u2019t care if you were sent here by the Queen herself, GET OUT OF
-    MY HOUSE!"
+  - I wouldn't care if you were sent here by the Queen herself, GET OUT OF MY HOUSE!
   - PROMPT
   - END
   badDiag1:
   - NAME-Detective
   - May I remind you that I have a warrant and it is my job, by law, to be here.
   - NAME-Athena
-  - "I wouldn\u2019t care if you were sent here by the Queen herself, GET OUT OF
-    MY HOUSE! "
+  - 'I wouldn''t care if you were sent here by the Queen herself, GET OUT OF MY HOUSE! '
   - PROMPT
   - END
   goodDiag2:
   - NAME-Detective
-  - "I\u2019m sorry but I have to ask you some questions and the quicker I do, the
-    quicker we can be out of each other\u2019s way."
+  - I'm sorry but I have to ask you some questions and the quicker I do, the quicker
+    we can be out of each other's way.
   - NAME-Athena
   - I suggest you get out of here before I call the Police!
   - PROMPT
@@ -1231,84 +1229,82 @@ MonoBehaviour:
   - END
   goodDiag3:
   - NAME-Detective
-  - "That won\u2019t be necessary."
+  - That won't be necessary.
   - NAME-Athena
-  - "If you\u2019re here about the girl you can talk to my \u2018DARLING\u2019 husband!"
+  - "If you\u2019re here about the girl you can talk to my 'DARLING' husband!"
   - PROMPT
   - END
   badDiag3:
   - NAME-Detective
   - I am the police.
   - NAME-Athena
-  - "If you\u2019re here about the girl you can talk to my \u2018DARLING\u2019 husband!"
+  - If you're here about the girl you can talk to my 'DARLING' husband!
   - PROMPT
   - END
   goodDiag4:
   - NAME-Detective
-  - "You\u2019re the only one in this house I haven\u2019t talked to yet, your husband
-    has already been questioned."
-  - "Out of interest, what was your husband\u2019s relationship with Miss Carter
-    like?"
+  - You're the only one in this house I haven't talked to yet, your husband has already
+    been questioned.
+  - Out of interest, what was your husband's relationship with Miss Carter like?
   - NAME-Athena
   - WHERE DID YOU PUT THEM?!
   - NAME-Detective
   - Excuse me? Where did I put what?
   - NAME-Athena
-  - "YOU KNOW EXACTLY WHAT I\u2019M TALKING ABOUT!"
+  - YOU KNOW EXACTLY WHAT I'M TALKING ABOUT!
   - PROMPT
   - END
   badDiag4:
   - NAME-Detective
   - I assure you I already have, it was interesting to say the least.
-  - "Out of interest, what was your husband\u2019s relationship with Miss Carter
-    like?"
+  - Out of interest, what was your husband's relationship with Miss Carter like?
   - NAME-Athena
   - WHERE DID YOU PUT THEM?!
   - NAME-Detective
   - Excuse me? Where did I put what?
   - NAME-Athena
-  - "YOU KNOW EXACTLY WHAT I\u2019M TALKING ABOUT!"
+  - YOU KNOW EXACTLY WHAT I'M TALKING ABOUT!
   - PROMPT
   - END
   goodDiag5:
   - NAME-Detective
-  - "I\u2019m afraid I don\u2019t, could you please elaborate?"
+  - I'm afraid I don't, could you please elaborate?
   - NAME-Athena
-  - "THE PILLS FOR GOD\u2019S SAKE!"
+  - THE PILLS FOR GOD'S SAKE!
   - NAME-Detective
-  - "Pills? (Like the ones in Miss Carter\u2019s room?) Oh dear. Miss Sunderland,
-    how long have you been without these pills?"
+  - Pills? (Like the ones in Miss Carter's room?) Oh dear. Miss Sunderland, how long
+    have you been without these pills?
   - NAME-Athena
-  - "Goodness knows! I don\u2019t care, just get me some more!"
+  - Goodness knows! I don't care, just get me some more!
   - NAME-Detective
-  - "Did you losing these pills happen to coincide with Miss Carter\u2019s passing?"
+  - Did you losing these pills happen to coincide with Miss Carter's passing?
   - NAME-Athena
-  - "I don\u2019t care about that wretched girl, ruining my marriage, stealing my
-    only child! If anything I\u2019m glad she\u2019s gone!"
+  - I don't care about that wretched girl, ruining my marriage, stealing my only
+    child! If anything I'm glad she's gone!
   - NAME-Detective
-  - "Miss Sunderland. I find your lack of concern for your own employees incredibly
+  - Miss Sunderland. I find your lack of concern for your own employees incredibly
     telling. I already know everything I need to know about you simply from the way
-    you\u2019ve spoken today."
+    you've spoken today.
   - END
   badDiag5:
   - NAME-Detective
-  - "What are you talking about Ma\u2019am?"
+  - What are you talking about Ma'am?
   - NAME-Athena
-  - "THE PILLS FOR GOD\u2019S SAKE!"
+  - THE PILLS FOR GOD'S SAKE!
   - NAME-Detective
-  - "Pills? (Like the ones in Miss Carter\u2019s room?) Oh dear. Miss Sunderland,
-    how long have you been without these pills?"
+  - Pills? (Like the ones in Miss Carter's room?) Oh dear. Miss Sunderland, how long
+    have you been without these pills?
   - NAME-Athena
-  - "Goodness knows! I don\u2019t care, just get me some more!"
+  - Goodness knows! I don't care, just get me some more!
   - NAME-Detective
-  - "Did you losing these pills happen to coincide with Miss Carter\u2019s passing?"
+  - Did you losing these pills happen to coincide with Miss Carter's passing?
   - NAME-Athena
-  - "I don\u2019t care about that wretched girl, ruining my marriage, stealing my
-    only child! If anything I\u2019m glad she\u2019s gone!"
+  - "I don't care about that wretched girl, ruining my marriage, stealing my only
+    child! If anything I\u2019m glad she's gone!"
   - NAME-Detective
-  - "Miss Sunderland. I find your lack of concern for your own employees incredibly
+  - Miss Sunderland. I find your lack of concern for your own employees incredibly
     telling. I already know everything I need to know about you simply from the way
-    you\u2019ve spoken today."
+    you've spoken today.
   - END
 --- !u!1 &697960893
 GameObject:

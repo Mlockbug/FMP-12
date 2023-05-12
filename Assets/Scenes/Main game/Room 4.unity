@@ -1393,24 +1393,23 @@ MonoBehaviour:
   text:
   - NAME-Detective
   - SPRITE-Idle
-  - "Do you know why I\u2019m here?Do you know why I\u2019m here?"
+  - Do you know why I'm here?
   - NAME-Gus
   - SPRITE-Hand behind head_ECS
-  - "I assume it\u2019s about the passing of poor Lady Carter."
+  - I assume it's about the passing of poor Lady Carter.
   - NAME-Detective
-  - "You\u2019d assume correctly."
+  - You'd assume correctly.
   - NAME-Gus
   - SPRITE-Idle_ECS
-  - "Isn\u2019t it awful? Well, that\u2019s why life is precious, it comes and goes
-    just like that. Death is something we\u2019ll all experience, may as well accept
-    it. "
+  - 'Isn''t it awful? Well, that''s why life is precious, it comes and goes just
+    like that. Death is something we''ll all experience, may as well accept it. '
   - NAME-Detective
-  - "That\u2019s one way to look at it I suppose."
+  - That's one way to look at it I suppose.
   - NAME-Gus
   - SPRITE-Idle_EC
-  - "Detective, I don\u2019t suppose you could help me prepare dinner?"
+  - Detective, I don't suppose you could help me prepare dinner?
   - NAME-Detective
-  - "Hm, I don\u2019t see why not. (Maybe he\u2019ll be more willing to talk)"
+  - Hm, I don't see why not. (Maybe he'll be more willing to talk)
   - END
 --- !u!114 &701415420
 MonoBehaviour:
@@ -2989,11 +2988,13 @@ MonoBehaviour:
   nameDisplay: {fileID: 1029433232}
   cont: {fileID: 1244263594}
   startingText:
-  - NAME-Detective
-  - SPRITE-Idle
-  - Mr Fring was it?
   - NAME-Chef
-  - Detective! Hello, my name is Gustavo but you can call me Gus.
+  - SPRITE-Idle
+  - Detective! Hello there.
+  - NAME-Detective
+  - Hello, may I get your name?
+  - NAME-Chef
+  - My name is Gustavo but you can call me Gus.
   - END
   checklist: {fileID: 0}
   currentSprite: {fileID: 772479258}
@@ -3010,10 +3011,11 @@ MonoBehaviour:
   cookingCompleted:
   - NAME-Gus
   - SPRITE-Idle
-  - "You might want to have a word with the Butler, he\u2019ll know more than I do."
+  - You might want to have a word with the Butler, he'll know more than I do.
   - END
   butlerCompleted: []
   childCompleted: []
+  conversationCompleted: []
 --- !u!1 &2111656870
 GameObject:
   m_ObjectHideFlags: 0

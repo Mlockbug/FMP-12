@@ -1856,8 +1856,8 @@ MonoBehaviour:
   - {fileID: 1031696927}
   textBox: {fileID: 856101012}
   failText:
-  - NAME-test
-  - testing 1 2 testing
+  - NAME-Penelope
+  - Wrong, try again Mister.
   - END
   succeedText: []
 --- !u!4 &1482318147

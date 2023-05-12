@@ -1476,11 +1476,11 @@ MonoBehaviour:
   - SPRITE-Idle
   - Hello Detective.
   - NAME-Detective
-  - "Sorry Sir, I didn\u2019t catch your name."
+  - Sorry Sir, I didn't catch your name.
   - NAME-Butler
   - SPRITE-Idle_EC
-  - "Wow, I\u2019m not usually the one referred to as \u2018Sir\u2019 around here,
-    that title usually falls to Mr. Sunderland. But, Jonathan will do."
+  - Wow, I'm not usually the one referred to as 'Sir' around here, that title usually
+    falls to Mr. Sunderland. But, Jonathan will do.
   - END
   checklist: {fileID: 0}
   currentSprite: {fileID: 509734103}
@@ -1500,6 +1500,7 @@ MonoBehaviour:
     Penelope if she\u2019s feeling up to it."
   - END
   childCompleted: []
+  conversationCompleted: []
 --- !u!1 &787053728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,17 +2845,17 @@ MonoBehaviour:
   text:
   - NAME-Detective
   - SPRITE-Idle
-  - "Well Jonathan, I\u2019m sure you know why I\u2019m here, I was wondering about
-    Mr. Sunderland\u2019s relationship with Miss Carter."
+  - Well Jonathan, I'm sure you know why I'm here, I was wondering about Mr. Sunderland's
+    relationship with Miss Carter.
   - NAME-Butler
   - SPRITE-Point_EC
-  - "I\u2019m not sure it\u2019s my place to say Detective."
+  - I'm not sure it's my place to say Detective.
   - NAME-Detective
-  - "I\u2019m not sure you understand the gravity of the situation."
+  - I'm not sure you understand the gravity of the situation.
   - NAME-Butler
   - SPRITE-Idle_S
   - "Well Detective, believe it or not I happen to be rather busy clearing away Miss.
-    Carter\u2019s things. We can discuss later, unless\u2026"
+    Carter's things. We can discuss later, unless\u2026"
   - NAME-Detective
   - Unless?
   - NAME-Butler

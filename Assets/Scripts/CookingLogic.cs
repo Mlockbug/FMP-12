@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CookingLogic : MonoBehaviour {
 
@@ -15,11 +16,16 @@ public class CookingLogic : MonoBehaviour {
 	public GameObject stage1;
 	public GameObject stage2;
 	public GameObject stage3;
-	public GameObject stage4;
-	public GameObject[] seasoning;
-	public RectTransform[] cutLocations;
-	public RectTransform knife;
-	Vector3 knifeLocation;
+	public Image saltOverlay;
+	public Image pepperOverlay;
+	public Image saltShaker;
+	public Image pepperShaker;
+	public RectTransform dial;
+	float dialRotation = 90f;
+	Color transparencySalt = Color.white;
+	Color transparencyPepper = Color.white;
+	Color transparencyCook = Color.white;
+	public Image cookedSteak;
 
 	[Header("Animators")]
 	public Animator[] animators;
@@ -27,39 +33,45 @@ public class CookingLogic : MonoBehaviour {
 	[Header("UI prompts")]
 	public GameObject seasonPrompt;
 	public GameObject fryPrompt;
-	public GameObject cutPrompt;
 	public GameObject exitPrompt;
 
-	int seasoningCount;
 	bool canSeason = true;
-	int fryCount;
-	bool canFry = true;
-	int cutCount;
-	bool canCut = true;
+	float fryCount;
+	bool cooked;
 	int exitStage = 0;
 	void Start() {
+		transparencySalt.a = 0f;
+		transparencyPepper.a = 0f;
+		transparencyCook.a = 0f;
 		diag = gameObject.AddComponent<Dialogue>();
 		diag.text = dialogueText;
-		knifeLocation = knife.position;
 	}
 	void Update() {
 		switch (stage) {
 			case 0:
 				if (Input.GetKeyDown(KeyCode.E) && canSeason) {
+					if (transparencySalt.a >= 1)
+						transparencyPepper.a += 0.35f;
+					else
+						transparencySalt.a += 0.35f;
+					if (transparencyPepper.a >= 1) {
+						stage1.SetActive(false);
+						stage2.SetActive(true);
+						stage = 1;
+					}
 					StartCoroutine(Stage1Progress());
 				}
 				break;
 			case 1:
-				if (Input.GetKeyDown(KeyCode.F) && canFry) {
-					StartCoroutine(Stage2Progress());
+				dialRotation += 0.01f; 
+				if (Input.GetKeyDown(KeyCode.F)) {
+					dialRotation -= 5f;
+				}
+				if (fryCount >= 1) {
+					cooked = true;
 				}
 				break;
 			case 2:
-				if (Input.GetKeyDown(KeyCode.C) && canCut) {
-					StartCoroutine(Stage3Progress());
-				}
-				break;
-			case 3:
 				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 1 && !inText) {
 					GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>().Speak(diag);
 					exitPrompt.SetActive(false);
@@ -71,66 +83,41 @@ public class CookingLogic : MonoBehaviour {
 				}
 				break;
 		}
-		if (seasoningCount == 5) {
-			seasoningCount = 0;
-			stage1.SetActive(false);
-			stage2.SetActive(true);
-			stage = 1;
-		}
-		if (fryCount == 2) {
+		if (transparencySalt.a >= 1)
+			pepperShaker.gameObject.SetActive(true);
+		if (cooked) {
 			fryCount = 0;
 			stage2.SetActive(false);
 			stage3.SetActive(true);
 			stage = 2;
-		}
-		if (cutCount == 4) {
-			cutCount = 0;
-			stage3.SetActive(false);
-			stage4.SetActive(true);
-			stage = 3;
 			StartCoroutine(Exit());
+			cooked = false;
 		}
 		if (inText && !textBox.activeSelf) {
 			inText= false;
 			StartCoroutine(Exit());
 		}
+		if (dialRotation > -14.5 && dialRotation < 14.5) {
+			fryCount += 0.00005f;
+			transparencyCook.a = fryCount;
+		}
+		saltOverlay.color = transparencySalt;
+		pepperOverlay.color= transparencyPepper;
+		cookedSteak.color = transparencyCook;
+		dialRotation = Mathf.Clamp(dialRotation, -90f, 90f);
+		dial.localRotation = Quaternion.Euler(0f, 0f, dialRotation);
 	}
 	IEnumerator Stage1Progress() {
-		seasoning[seasoningCount].SetActive(true);
 		seasonPrompt.SetActive(false);
 		canSeason = false;
 		yield return new WaitForSeconds(0.5f);
-		seasoningCount++;
 		canSeason = true;
 		seasonPrompt.SetActive(true);
 		StopCoroutine(Stage1Progress());
 	}
-	IEnumerator Stage2Progress() {
-		canFry = false;
-		animators[0].SetTrigger("flip");
-		fryPrompt.SetActive(false);
-		yield return new WaitForSeconds(5f);
-		fryCount++;
-		canFry = true;
-		fryPrompt.SetActive(true);
-		StopCoroutine(Stage2Progress());
-	}
-	IEnumerator Stage3Progress() {
-		canCut = false;
-		knife.position = cutLocations[cutCount].position;
-		//do animation...
-		cutPrompt.SetActive(false);
-		yield return new WaitForSeconds(0.5f);
-		knife.position = knifeLocation;
-		cutCount++;
-		canCut = true;
-		cutPrompt.SetActive(true);
-		StopCoroutine(Stage3Progress());
-	}
 	IEnumerator Exit() {
 		yield return new WaitForSeconds(2.5f);
 		exitPrompt.SetActive(true);
-		Debug.Log(exitStage);
 		exitStage++;
 		Debug.Log(exitStage);
 		StopCoroutine(Exit());
