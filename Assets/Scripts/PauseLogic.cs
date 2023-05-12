@@ -9,6 +9,7 @@ public class PauseLogic : MonoBehaviour {
 	public Canvas thisCanvas;
 	public GameObject pauseMenu;
 	public Image[] checkmarks;
+	bool playingCutscene;
 	void Start() {
 		count = 0;
 		foreach (GameObject x in GameObject.FindGameObjectsWithTag("PauseMenu"))
@@ -23,8 +24,11 @@ public class PauseLogic : MonoBehaviour {
 
 	void Update() {
 		thisCanvas.worldCamera = Camera.main;
-		if (Input.GetKeyDown(KeyCode.Semicolon) && SceneManager.GetActiveScene().buildIndex != 0) {
-			pauseMenu.SetActive(true);
+		if (SceneManager.GetActiveScene().buildIndex == 6)
+			playingCutscene = Camera.main.gameObject.GetComponent<CutsceneLogic>().playing;
+		if (Input.GetKeyDown(KeyCode.Semicolon)) {
+			if (SceneManager.GetActiveScene().buildIndex != 0 || !playingCutscene)
+				pauseMenu.SetActive(true);
 		}
 	}
 

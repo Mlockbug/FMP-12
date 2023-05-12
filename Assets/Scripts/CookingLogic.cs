@@ -64,8 +64,8 @@ public class CookingLogic : MonoBehaviour {
 				break;
 			case 1:
 				dialRotation += 0.01f; 
-				if (Input.GetKeyDown(KeyCode.F)) {
-					dialRotation -= 5f;
+				if (Input.GetKey(KeyCode.F)) {
+					dialRotation -= 0.02f;
 				}
 				if (fryCount >= 1) {
 					cooked = true;
