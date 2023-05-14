@@ -55,4 +55,12 @@ public class ChecklistLogic : MonoBehaviour {
 		minigamesCompleted[minigame] = true;
 		GameObject.Find("Pause canvas DDOL").GetComponent<PauseLogic>().checkmarks[minigame].color = Color.white;
 	}
+
+	public bool ShouldPlayCutscene() {
+		bool status = true;
+		foreach (bool x in minigamesCompleted)
+			if (x == false)
+				status = false;
+		return status;
+	}
 }

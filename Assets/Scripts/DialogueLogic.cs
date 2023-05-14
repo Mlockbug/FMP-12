@@ -124,4 +124,11 @@ public class DialogueLogic : MonoBehaviour {
 		childText= gameObject.AddComponent<Dialogue>();			childText.text = childCompleted;
 		conversationText= gameObject.AddComponent<Dialogue>();	conversationText.text = conversationCompleted;
 	}
+
+	public void StartConversationMinigame() {
+		if (!checklist.minigamesCompleted[SceneManager.GetActiveScene().buildIndex - 1])
+			GameObject.Find("Move Manager").GetComponent<MoveLogic>().PlayConversation();
+		else
+			Speak(conversationText);
+	}
 }

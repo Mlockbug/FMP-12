@@ -514,9 +514,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 659845618}
-        m_TargetAssemblyTypeName: MoveLogic, Assembly-CSharp
-        m_MethodName: PlayConversation
+      - m_Target: {fileID: 1901222137}
+        m_TargetAssemblyTypeName: DialogueLogic, Assembly-CSharp
+        m_MethodName: StartConversationMinigame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

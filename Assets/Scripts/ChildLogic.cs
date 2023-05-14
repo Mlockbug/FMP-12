@@ -16,17 +16,26 @@ public class ChildLogic : MonoBehaviour {
 	Dialogue failDiag;
 	public string[] succeedText;
 	Dialogue succeedDiag;
+	bool successDiagCompleted = false;
+	bool inDiag;
 	// Start is called before the first frame update
 	void Start() {
-		failDiag = this.gameObject.AddComponent<Dialogue>();  failDiag.text = failText;
-		succeedDiag = this.gameObject.AddComponent<Dialogue>();  succeedDiag.text = succeedText;
+		failDiag = gameObject.AddComponent<Dialogue>();  failDiag.text = failText;
+		succeedDiag = gameObject.AddComponent<Dialogue>();  succeedDiag.text = succeedText;
 	}
 
 	// Update is called once per frame
 	void Update() {
 		if (roundsWon== 5) {
-			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(3);
-			SceneManager.LoadScene(3);
+			newRound= false;
+			if (successDiagCompleted) {
+				GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(3);
+				SceneManager.LoadScene(3);
+			}
+			if (!inDiag) {
+				GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>().Speak(succeedDiag);
+				inDiag = true;
+			}
 		}
 		if (newRound && !textBox.activeSelf) {
 			if (previousPosition == position)
@@ -41,6 +50,10 @@ public class ChildLogic : MonoBehaviour {
 				succeedButtons[position].SetActive(true);
 				previousPosition = position;
 			}
+		}
+		if (inDiag&& !textBox.activeSelf) {
+			inDiag= false;
+			successDiagCompleted = true;
 		}
 	}
 

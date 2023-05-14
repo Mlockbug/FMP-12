@@ -6,21 +6,46 @@ using UnityEngine.Video;
 public class CutsceneLogic : MonoBehaviour
 {
     public bool shouldPlay;
-    public bool playing;
+    public bool playing = false;
     public VideoPlayer videoPlayer;
     public VideoClip cutscene;
     float opacity;
+    public GameObject canvas;
+    public GameObject endScreen;
 
-    void Update()
+	void Start() {
+		shouldPlay = GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().ShouldPlayCutscene();
+	}
+	void Update()
     {
-        if (shouldPlay && !playing) {
+        if (playing != videoPlayer.isPlaying && Application.isFocused) {
+            Debug.Log(videoPlayer.isPlaying);
+            Debug.Log(playing);
+            StartCoroutine(ShowEndScreen());
+        }
+		if (shouldPlay && !playing) {
+            canvas.SetActive(false);
+            endScreen.SetActive(false);
             videoPlayer.clip = cutscene;
             videoPlayer.Play();
             playing = true;
         }
-        if (playing && !videoPlayer.isPlaying)
-            opacity -= 0.05f;
-        Mathf.Clamp(opacity, 0f, 1f);
-        videoPlayer.targetCameraAlpha = opacity;
+		else videoPlayer.targetCameraAlpha = 1;
+		playing = videoPlayer.isPlaying;
+        
+    }
+
+    IEnumerator ShowEndScreen() {
+        shouldPlay= false;
+        playing= false;
+        while (opacity>0f) {
+			if (!videoPlayer.isPlaying)
+				opacity -= 0.05f;
+			Mathf.Clamp(opacity, 0f, 1f);
+			videoPlayer.targetCameraAlpha = opacity;
+		}
+        endScreen.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        Application.Quit();
     }
 }
