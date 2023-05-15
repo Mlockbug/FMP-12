@@ -41,10 +41,13 @@ public class ConversationLogic : MonoBehaviour
             speaker = GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>();
         if (!textBox.activeSelf && turn >= 10 && !inText) {
             GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(1);
-            SceneManager.LoadScene(1);
+			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
+			SceneManager.LoadScene(1);
         }
-        if (stress == 4 && !textBox.activeSelf && !(turn >=10) && !inText)
-            SceneManager.LoadScene(1);
+        if (stress == 4 && !textBox.activeSelf && !(turn >= 10) && !inText) {
+			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
+			SceneManager.LoadScene(1);
+		}
         if (inText && !textBox.activeSelf)
             inText= false;
         Mathf.Clamp(stress, 0, 4);

@@ -12,6 +12,7 @@ public class ChecklistLogic : MonoBehaviour {
 	GameObject talkButton;
 	bool cleared;
 	int activeScene;
+	float musicTime;
 	void Start() {
 		foreach (GameObject x in GameObject.FindGameObjectsWithTag("Checklist"))
 			count++;
@@ -19,6 +20,7 @@ public class ChecklistLogic : MonoBehaviour {
 			Destroy(this.gameObject);
 		else {
 			DontDestroyOnLoad(this);
+			Screen.SetResolution(1280, 720, true);
 			this.name = "Checklist DDOL";
 		}
 		cleared = false;
@@ -28,10 +30,20 @@ public class ChecklistLogic : MonoBehaviour {
 		playButton = GameObject.Find("Play");
 		talkButton = GameObject.Find("Talk");
 		activeScene = SceneManager.GetActiveScene().buildIndex;
-		if (playButton != null)
+		if (musicTime > 0 && musicTime != FindObjectOfType<AudioSource>().time) {
+			FindObjectOfType<AudioSource>().time = musicTime;
+			musicTime = 0;
+		}
+		if (playButton != null) {
 			playButton.GetComponent<Button>().interactable = minigamesActive[activeScene - 1];
-		if (talkButton != null && !minigamesCompleted[activeScene - 1])
+			if (activeScene!=1)
+				playButton.GetComponent<Button>().onClick.AddListener(GetTime);
+		}
+		if (talkButton != null && !minigamesCompleted[activeScene - 1]) {
+			if (activeScene==1)
+				talkButton.GetComponent<Button>().onClick.AddListener(GetTime);
 			talkButton.GetComponent<Button>().onClick.AddListener(ActivateMinigame);
+		}
 		if (activeScene == 5 && !cleared)
 			if (minigamesCompleted[activeScene - 1]) {
 				GameObject.Find("Background uncleaned").SetActive(false);
@@ -62,5 +74,9 @@ public class ChecklistLogic : MonoBehaviour {
 			if (x == false)
 				status = false;
 		return status;
+	}
+
+	public void GetTime() {
+		musicTime = FindObjectOfType<AudioSource>().time;
 	}
 }

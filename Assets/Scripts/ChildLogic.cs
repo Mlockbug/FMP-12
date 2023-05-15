@@ -30,6 +30,7 @@ public class ChildLogic : MonoBehaviour {
 			newRound= false;
 			if (successDiagCompleted) {
 				GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(3);
+				GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
 				SceneManager.LoadScene(3);
 			}
 			if (!inDiag) {

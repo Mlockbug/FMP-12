@@ -50,6 +50,7 @@ public class CleaningLogic : MonoBehaviour {
 		}
 		else if (!textBox.activeSelf && doneCompleteDiag) {
 			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(5);
+			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
 			SceneManager.LoadScene(5);
 		}
 		else if (!textBox.activeSelf && objectsCount == 27) {

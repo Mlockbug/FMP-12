@@ -66,6 +66,7 @@ public class PokerLogic : MonoBehaviour {
 
 		if (round == 3) {
 			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(2);
+			GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
 			SceneManager.LoadScene(2);
 		}
 

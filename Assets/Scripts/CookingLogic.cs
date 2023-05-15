@@ -63,22 +63,23 @@ public class CookingLogic : MonoBehaviour {
 				}
 				break;
 			case 1:
-				dialRotation += 0.01f; 
+				dialRotation += 0.05f; 
 				if (Input.GetKey(KeyCode.F)) {
-					dialRotation -= 0.02f;
+					dialRotation -= 0.15f;
 				}
 				if (fryCount >= 1) {
 					cooked = true;
 				}
 				break;
 			case 2:
-				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 1 && !inText) {
+				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 1 && !inText && exitPrompt.activeSelf) {
 					GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>().Speak(diag);
 					exitPrompt.SetActive(false);
 					inText = true;
 				}
 				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 2) {
 					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(4);
+					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
 					SceneManager.LoadScene(4);
 				}
 				break;
@@ -98,7 +99,7 @@ public class CookingLogic : MonoBehaviour {
 			StartCoroutine(Exit());
 		}
 		if (dialRotation > -14.5 && dialRotation < 14.5) {
-			fryCount += 0.00005f;
+			fryCount += 0.0005f;
 			transparencyCook.a = fryCount;
 		}
 		saltOverlay.color = transparencySalt;
