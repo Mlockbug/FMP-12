@@ -7,7 +7,7 @@ public class MainMenuLogic : MonoBehaviour {
 	public GameObject mainMenuUI;
 	public GameObject creditsUI;
 	public void Play() {
-		SceneManager.LoadScene(7);
+		SceneManager.LoadScene(13);
 	}
 	public void Quit() {
 		Application.Quit();

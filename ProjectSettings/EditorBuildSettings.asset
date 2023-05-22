@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Conversation.unity
     guid: aea9b559448a27d4d8f8677dce6113ca
+  - enabled: 1
+    path: Assets/Scenes/Main game/Start Cutscene.unity
+    guid: 2a15674be6009e144b419294040e490a
   m_configObjects: {}

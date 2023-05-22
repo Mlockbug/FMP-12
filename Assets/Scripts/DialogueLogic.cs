@@ -66,6 +66,8 @@ public class DialogueLogic : MonoBehaviour {
 							currentSprite.SetActive(true);
 						}
 				}
+				else if (diagString == "LOADSTARTSCENE")
+					checklist.doneStartCutscene = true;
 				else
 					StartCoroutine(ReadText());
 			}

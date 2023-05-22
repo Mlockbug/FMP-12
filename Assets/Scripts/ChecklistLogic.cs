@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ChecklistLogic : MonoBehaviour {
 	public bool[] minigamesCompleted = new bool[5];
 	public bool[] minigamesActive = new bool[5];
+	public bool doneStartCutscene;
 	int count;
 	GameObject playButton;
 	GameObject talkButton;
@@ -30,6 +31,8 @@ public class ChecklistLogic : MonoBehaviour {
 		playButton = GameObject.Find("Play");
 		talkButton = GameObject.Find("Talk");
 		activeScene = SceneManager.GetActiveScene().buildIndex;
+		if (activeScene == 13 && doneStartCutscene)
+			SceneManager.LoadScene(7);
 		if (musicTime > 0 && musicTime != FindObjectOfType<AudioSource>().time) {
 			FindObjectOfType<AudioSource>().time = musicTime;
 			musicTime = 0;

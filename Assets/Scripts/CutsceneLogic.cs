@@ -31,7 +31,7 @@ public class CutsceneLogic : MonoBehaviour
             playing = true;
         }
 		else videoPlayer.targetCameraAlpha = 1;
-		playing = videoPlayer.isPlaying;
+		    playing = videoPlayer.isPlaying;
         
     }
 
