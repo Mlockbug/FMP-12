@@ -21,6 +21,7 @@ public class CookingLogic : MonoBehaviour {
 	public Image saltShaker;
 	public Image pepperShaker;
 	public RectTransform dial;
+	public AudioSource sizzling;
 	float dialRotation = 90f;
 	Color transparencySalt = Color.white;
 	Color transparencyPepper = Color.white;
@@ -106,6 +107,7 @@ public class CookingLogic : MonoBehaviour {
 		pepperOverlay.color= transparencyPepper;
 		cookedSteak.color = transparencyCook;
 		dialRotation = Mathf.Clamp(dialRotation, -90f, 90f);
+		sizzling.volume = 0.9f - (dial.rotation.normalized.z/100f);
 		dial.localRotation = Quaternion.Euler(0f, 0f, dialRotation);
 	}
 	IEnumerator Stage1Progress() {
