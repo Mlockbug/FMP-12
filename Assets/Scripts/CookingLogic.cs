@@ -38,6 +38,7 @@ public class CookingLogic : MonoBehaviour {
 
 	bool canSeason = true;
 	float fryCount;
+	float sizzVolume;
 	bool cooked;
 	int exitStage = 0;
 	void Start() {
@@ -100,14 +101,17 @@ public class CookingLogic : MonoBehaviour {
 			StartCoroutine(Exit());
 		}
 		if (dialRotation > -14.5 && dialRotation < 14.5) {
-			fryCount += 0.0005f;
+			fryCount += 0.001f;
 			transparencyCook.a = fryCount;
 		}
 		saltOverlay.color = transparencySalt;
 		pepperOverlay.color= transparencyPepper;
 		cookedSteak.color = transparencyCook;
 		dialRotation = Mathf.Clamp(dialRotation, -90f, 90f);
-		sizzling.volume = 0.9f - (dial.rotation.normalized.z/100f);
+		sizzVolume = dialRotation;
+		if (sizzVolume <= 0)
+			sizzVolume *= -1;
+		sizzling.volume = 0.9f - (sizzVolume/100f);
 		dial.localRotation = Quaternion.Euler(0f, 0f, dialRotation);
 	}
 	IEnumerator Stage1Progress() {

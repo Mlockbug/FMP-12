@@ -45,6 +45,12 @@ public class PokerLogic : MonoBehaviour {
 	Dialogue cannotDo;
 	Dialogue giveChips;
 
+	[Header("Audio")]
+	public AudioSource source;
+	public AudioClip shuffle1;
+	public AudioClip shuffle3;
+	public AudioClip shuffle4;
+
 	void Start() {
 		SortArray(round1Cards, cards, 0); SortArray(round2Cards, cards, 1); SortArray(round3Cards, cards, 2);
 		round1Dialogue = GameObject.Find("Text 1").GetComponent<Dialogue>();
@@ -101,6 +107,7 @@ public class PokerLogic : MonoBehaviour {
 					backOfEdwardHand.SetActive(true);
 					StartCoroutine(Wait());
 					StartCoroutine(Announce("Dealing hand"));
+					source.PlayOneShot(shuffle4);
 					break;
 				case 3:
 					if (round == 0)
@@ -125,6 +132,7 @@ public class PokerLogic : MonoBehaviour {
 					cards[round, 1].SetActive(true);
 					StartCoroutine(Wait());
 					StartCoroutine(Announce("Flop"));
+					source.PlayOneShot(shuffle3);
 					break;
 				case 7:
 					maxBet = 0;
@@ -145,6 +153,7 @@ public class PokerLogic : MonoBehaviour {
 					cards[round, 2].SetActive(true);
 					StartCoroutine(Wait());
 					StartCoroutine(Announce("Turn"));
+					source.PlayOneShot(shuffle1);
 					canFold = true;
 					canAllIn = true;
 					break;
@@ -169,6 +178,7 @@ public class PokerLogic : MonoBehaviour {
 					cards[round, 3].SetActive(true);
 					StartCoroutine(Wait());
 					StartCoroutine(Announce("River"));
+					source.PlayOneShot(shuffle1);
 					canFold = true;
 					canAllIn = true;
 					if (goneAllIn) {
@@ -182,7 +192,7 @@ public class PokerLogic : MonoBehaviour {
 					inactive = true;
 					break;
 				case 14:
-					if (round == 0 && goneAllIn) {
+					if (round == 0) {
 						StartCoroutine(Announce("Edward folds"));
 						StartCoroutine(Wait());
 					}

@@ -19,6 +19,8 @@ public class CleaningLogic : MonoBehaviour {
 	public GameObject textBox;
 	bool doneProgressDiag = false;
 	bool doneCompleteDiag = false;
+	public AudioSource thudPlayer;
+	public AudioClip thudSFX;
 	void Start() {
 		progressDiag = gameObject.AddComponent<Dialogue>();	progressDiag.text = progressText;
 		frameDiag = gameObject.AddComponent<Dialogue>();	frameDiag.text = frameText;
@@ -81,6 +83,7 @@ public class CleaningLogic : MonoBehaviour {
 				dialogueManager.Speak(pillDiag);
 				break;
 		}
+		thudPlayer.PlayOneShot(thudSFX);
 		objectsCount++;
 		Destroy(collision.transform.parent.gameObject);
 	}

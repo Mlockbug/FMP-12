@@ -27,7 +27,7 @@ public class PauseLogic : MonoBehaviour {
 		if (SceneManager.GetActiveScene().buildIndex == 6)
 			playingCutscene = Camera.main.gameObject.GetComponent<CutsceneLogic>().playing;
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			if (SceneManager.GetActiveScene().buildIndex != 0 && !playingCutscene)
+			if (SceneManager.GetActiveScene().buildIndex != 0 && !playingCutscene && SceneManager.GetActiveScene().buildIndex != 13)
 				pauseMenu.SetActive(true);
 		}
 	}
