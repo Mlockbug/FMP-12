@@ -33,8 +33,8 @@ public class ChecklistLogic : MonoBehaviour {
 		activeScene = SceneManager.GetActiveScene().buildIndex;
 		if (activeScene == 13 && doneStartCutscene)
 			SceneManager.LoadScene(7);
-		if (musicTime > 0 && musicTime != FindObjectOfType<AudioSource>().time) {
-			FindObjectOfType<AudioSource>().time = musicTime;
+		if (musicTime > 0 && musicTime != Camera.main.GetComponent<AudioSource>().time) {
+			Camera.main.GetComponent<AudioSource>().time = musicTime;
 			musicTime = 0;
 		}
 		if (playButton != null) {
