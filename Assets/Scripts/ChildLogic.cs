@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChildLogic : MonoBehaviour {
 	public GameObject[] failButtons;
@@ -20,14 +20,14 @@ public class ChildLogic : MonoBehaviour {
 	bool inDiag;
 	// Start is called before the first frame update
 	void Start() {
-		failDiag = gameObject.AddComponent<Dialogue>();  failDiag.text = failText;
-		succeedDiag = gameObject.AddComponent<Dialogue>();  succeedDiag.text = succeedText;
+		failDiag = gameObject.AddComponent<Dialogue>(); failDiag.text = failText;
+		succeedDiag = gameObject.AddComponent<Dialogue>(); succeedDiag.text = succeedText;
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if (roundsWon== 5) {
-			newRound= false;
+		if (roundsWon == 5) {
+			newRound = false;
 			if (successDiagCompleted) {
 				GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(3);
 				GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
@@ -52,8 +52,8 @@ public class ChildLogic : MonoBehaviour {
 				previousPosition = position;
 			}
 		}
-		if (inDiag&& !textBox.activeSelf) {
-			inDiag= false;
+		if (inDiag && !textBox.activeSelf) {
+			inDiag = false;
 			successDiagCompleted = true;
 		}
 	}

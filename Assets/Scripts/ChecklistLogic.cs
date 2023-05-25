@@ -25,6 +25,8 @@ public class ChecklistLogic : MonoBehaviour {
 			this.name = "Checklist DDOL";
 		}
 		cleared = false;
+		if (SceneManager.GetActiveScene().buildIndex == 13 && doneStartCutscene)
+			SceneManager.LoadScene(7);
 	}
 
 	private void Update() {
