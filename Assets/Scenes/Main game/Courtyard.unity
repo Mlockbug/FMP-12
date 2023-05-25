@@ -938,7 +938,7 @@ MonoBehaviour:
   shouldPlay: 0
   playing: 0
   videoPlayer: {fileID: 1509987391}
-  cutscene: {fileID: 32900000, guid: c1895a336b93f8748bc97c87d602607e, type: 3}
+  cutscene: {fileID: 32900000, guid: cbcb11374c3708a469707a1cae5da957, type: 3}
   canvas: {fileID: 1416237882}
   endScreen: {fileID: 485095001}
 --- !u!328 &1509987391
