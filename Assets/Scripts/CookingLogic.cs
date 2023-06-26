@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -41,6 +42,8 @@ public class CookingLogic : MonoBehaviour {
 	float sizzVolume;
 	bool cooked;
 	int exitStage = 0;
+
+	bool fPressed, ePressed, enterPressed;
 	void Start() {
 		transparencySalt.a = 0f;
 		transparencyPepper.a = 0f;
@@ -51,7 +54,7 @@ public class CookingLogic : MonoBehaviour {
 	void Update() {
 		switch (stage) {
 			case 0:
-				if (Input.GetKeyDown(KeyCode.E) && canSeason) {
+				if (ePressed && canSeason) {
 					if (transparencySalt.a >= 1)
 						transparencyPepper.a += 0.35f;
 					else
@@ -66,7 +69,7 @@ public class CookingLogic : MonoBehaviour {
 				break;
 			case 1:
 				dialRotation += 0.05f; 
-				if (Input.GetKey(KeyCode.F)) {
+				if (fPressed) {
 					dialRotation -= 0.15f;
 				}
 				if (fryCount >= 1) {
@@ -74,12 +77,12 @@ public class CookingLogic : MonoBehaviour {
 				}
 				break;
 			case 2:
-				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 1 && !inText && exitPrompt.activeSelf) {
+				if (enterPressed && exitStage == 1 && !inText && exitPrompt.activeSelf) {
 					GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>().Speak(diag);
 					exitPrompt.SetActive(false);
 					inText = true;
 				}
-				if (Input.GetKeyDown(KeyCode.Return) && exitStage == 2) {
+				if (enterPressed && exitStage == 2) {
 					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(4);
 					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
 					SceneManager.LoadScene(4);
@@ -113,6 +116,24 @@ public class CookingLogic : MonoBehaviour {
 			sizzVolume *= -1;
 		sizzling.volume = 0.9f - (sizzVolume/100f);
 		dial.localRotation = Quaternion.Euler(0f, 0f, dialRotation);
+	}
+	public void PressF(InputAction.CallbackContext ctx) {
+		if (ctx.performed)
+			fPressed = true;
+		if (ctx.canceled)
+			fPressed = false;
+	}
+	public void PressE(InputAction.CallbackContext ctx) {
+		if (ctx.performed)
+			ePressed = true;
+		if (ctx.canceled)
+			ePressed = false;
+	}
+	public void PressEnter(InputAction.CallbackContext ctx) {
+		if (ctx.performed)
+			enterPressed = true;
+		if (ctx.canceled)
+			enterPressed = false;
 	}
 	IEnumerator Stage1Progress() {
 		seasonPrompt.SetActive(false);

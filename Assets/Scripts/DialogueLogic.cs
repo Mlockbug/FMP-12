@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -25,6 +26,8 @@ public class DialogueLogic : MonoBehaviour {
 	public string[] childCompleted;			Dialogue childText;
 	public string[] conversationCompleted;	Dialogue conversationText;
 
+	bool enterPressed;
+
 	private void Start() {
 		CreateDialogue();
 		checklist = GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>();
@@ -35,13 +38,20 @@ public class DialogueLogic : MonoBehaviour {
 		}
 	}
 
+	public void PressEnter(InputAction.CallbackContext ctx) {
+		if (ctx.performed)
+			enterPressed = true;
+		if (ctx.canceled)
+			enterPressed = false;
+	}
+
 	private void Update() {
 		if (fullDialogue.Count > 0) {
-			if (cont.activeSelf == true && Input.GetKeyDown(KeyCode.Return)) {
+			if (cont.activeSelf == true && enterPressed) {
 				cont.SetActive(false);
 				continueText = true;
 			}
-			if (!continueText && Input.GetKeyDown(KeyCode.Return)) {
+			if (!continueText && enterPressed) {
 				textDisplay.text = diagString;
 				cont.SetActive(true);
 			}

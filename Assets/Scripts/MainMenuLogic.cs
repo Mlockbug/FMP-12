@@ -7,6 +7,8 @@ public class MainMenuLogic : MonoBehaviour {
 	public GameObject mainMenuUI;
 	public GameObject creditsUI;
 	public void Play() {
+		Debug.Log("I am doing a thing");
+
 		SceneManager.LoadScene(13);
 	}
 	public void Quit() {

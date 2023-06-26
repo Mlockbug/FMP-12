@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
+
 
 public class CursorLogic : MonoBehaviour {
 	int count;
 	public Transform cursor;
 	public Animator myAnim;
 	GameObject thingToPickup;
+	SpriteRenderer spriteRenderer;
+
 	bool send;
+
+	Vector2 mousePos;
+
 	void Start() {
+		mousePos = new Vector2(Screen.width / 2, Screen.height / 2);
+
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Confined;
 
@@ -25,20 +34,33 @@ public class CursorLogic : MonoBehaviour {
 		}
 	}
 
-	void Update() {
-		Mouse.current.WarpCursorPosition(new Vector2(1,1));
-		cursor.position = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
-		cursor.position = new Vector3(cursor.position.x + 0.1f, cursor.position.y - 0.15f, 0f);
-
-		//I made this at about 10pm, it probably shouldn't work, but it does, and i will not be changing it as a result
-		if (Input.GetMouseButtonDown(0)) {
+	public void Click (InputAction.CallbackContext ctx) { 
+		if (ctx.performed) {
 			myAnim.SetTrigger("click");
 			send = true;
 		}
-		if (Input.GetMouseButtonUp(0)) {
+
+		if (ctx.canceled) {
 			thingToPickup = null;
 			send = false;
 		}
+	}
+
+	Vector2 joystickInput;
+
+	public void Point(InputAction.CallbackContext ctx) {
+		joystickInput = ctx.ReadValue<Vector2>();
+	}
+
+	void Update() {
+		mousePos += joystickInput;
+
+		mousePos = new Vector2(Mathf.Clamp(mousePos.x, 0f, Screen.width), Mathf.Clamp(mousePos.y, 0, Screen.height));
+		Mouse.current.WarpCursorPosition(mousePos);
+
+		cursor.position = FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos);
+		cursor.position = new Vector3(cursor.position.x + 0.1f, cursor.position.y - 0.15f, 0f);
+
 		if (SceneManager.GetActiveScene().buildIndex == 11 && thingToPickup!= null && send) {
 			GameObject.Find("Cleaning Manager").GetComponent<CleaningLogic>().Pickup(thingToPickup);
 			thingToPickup = null;

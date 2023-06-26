@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,7 @@ public class CleaningLogic : MonoBehaviour {
 	bool doneCompleteDiag = false;
 	public AudioSource thudPlayer;
 	public AudioClip thudSFX;
+	bool lClickPressed;
 	void Start() {
 		progressDiag = gameObject.AddComponent<Dialogue>();	progressDiag.text = progressText;
 		frameDiag = gameObject.AddComponent<Dialogue>();	frameDiag.text = frameText;
@@ -31,16 +33,22 @@ public class CleaningLogic : MonoBehaviour {
 		dialogueManager = GameObject.FindObjectOfType<DialogueLogic>();
 	}
 
+	Vector2 mousePos;
+
+	public void Point(InputAction.CallbackContext ctx) {
+		mousePos = ctx.ReadValue<Vector2>();
+	}
+
 	void Update() {
-		if (Input.GetMouseButtonDown(0) && heldObject != null) {
+		if (lClickPressed && heldObject != null) {
 			pickingUp = true;
-			offset = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition) - heldObject.GetComponent<RectTransform>().position;
+			offset = FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos) - heldObject.GetComponent<RectTransform>().position;
 		}
-		if (Input.GetMouseButton(0) && heldObject != null && pickingUp) {
+		if (lClickPressed && heldObject != null && pickingUp) {
 			pickingUp = true;
-			heldObject.GetComponent<RectTransform>().position = new Vector3(FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition).x, FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition).y, 0f) - offset;
+			heldObject.GetComponent<RectTransform>().position = new Vector3(FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos).x, FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos).y, 0f) - offset;
 		}
-		if (Input.GetMouseButtonUp(0)) {
+		if (!lClickPressed) {
 			pickingUp = false;
 			heldObject = null;
 			offset = Vector3.zero;
@@ -64,6 +72,15 @@ public class CleaningLogic : MonoBehaviour {
 	public void Pickup(GameObject parent) {
 		if (!pickingUp) {
 			heldObject = parent.transform.parent.gameObject;
+		}
+	}
+
+	public void Click(InputAction.CallbackContext ctx) {
+		if (ctx.performed) {
+			lClickPressed = true;
+		}
+		if (ctx.canceled) {
+			lClickPressed = false;
 		}
 	}
 
