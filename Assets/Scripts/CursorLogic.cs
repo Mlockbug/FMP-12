@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CursorLogic : MonoBehaviour {
@@ -25,6 +26,7 @@ public class CursorLogic : MonoBehaviour {
 	}
 
 	void Update() {
+		Mouse.current.WarpCursorPosition(new Vector2(1,1));
 		cursor.position = FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
 		cursor.position = new Vector3(cursor.position.x + 0.1f, cursor.position.y - 0.15f, 0f);
 
