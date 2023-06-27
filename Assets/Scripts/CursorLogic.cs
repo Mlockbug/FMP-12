@@ -69,7 +69,8 @@ public class CursorLogic : MonoBehaviour {
 
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit))
 			{
-				hit.transform.GetComponent<Button>().onClick?.Invoke();
+				if (hit.transform.GetComponent<Button>().interactable)
+					hit.transform.GetComponent<Button>().onClick?.Invoke();
 			}
 		}	
 

@@ -473,6 +473,7 @@ GameObject:
   - component: {fileID: 574551970}
   - component: {fileID: 574551969}
   - component: {fileID: 574551968}
+  - component: {fileID: 574551971}
   m_Layer: 5
   m_Name: Room 6
   m_TagString: Untagged
@@ -594,6 +595,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574551966}
   m_CullTransparentMesh: 1
+--- !u!65 &574551971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574551966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 239.9106, y: 44.25063, z: 0.7105324}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &629057164
 GameObject:
   m_ObjectHideFlags: 0

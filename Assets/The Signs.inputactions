@@ -441,7 +441,7 @@
                 {
                     "name": "up",
                     "id": "243779f5-62cb-4f75-bc3a-875a10ec8a73",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
@@ -452,7 +452,7 @@
                 {
                     "name": "down",
                     "id": "1b933cd0-d2a9-4269-8421-e491573d9993",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
@@ -463,7 +463,7 @@
                 {
                     "name": "left",
                     "id": "31747009-974f-4732-aa27-6f3b009ff831",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
@@ -474,7 +474,7 @@
                 {
                     "name": "right",
                     "id": "bea10459-b0ca-4c46-a487-b1aaf12f2856",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",

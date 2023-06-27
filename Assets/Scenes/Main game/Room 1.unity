@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 172535376}
   - component: {fileID: 172535375}
   - component: {fileID: 172535374}
+  - component: {fileID: 172535377}
   m_Layer: 5
   m_Name: drawing room
   m_TagString: Untagged
@@ -359,6 +360,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172535372}
   m_CullTransparentMesh: 1
+--- !u!65 &172535377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172535372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 239.9106, y: 44.25063, z: 0.7105324}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &200215126
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +457,7 @@ GameObject:
   - component: {fileID: 264634038}
   - component: {fileID: 264634037}
   - component: {fileID: 264634036}
+  - component: {fileID: 264634035}
   m_Layer: 5
   m_Name: Talk
   m_TagString: Untagged
@@ -470,6 +485,19 @@ RectTransform:
   m_AnchoredPosition: {x: -175, y: -160}
   m_SizeDelta: {x: 240, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &264634035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264634033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 239.9106, y: 44.25063, z: 0.7105324}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &264634036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1553,7 @@ GameObject:
   - component: {fileID: 1040619367}
   - component: {fileID: 1040619366}
   - component: {fileID: 1040619365}
+  - component: {fileID: 1040619368}
   m_Layer: 5
   m_Name: Move
   m_TagString: Untagged
@@ -1646,6 +1675,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040619363}
   m_CullTransparentMesh: 1
+--- !u!65 &1040619368
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040619363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 239.9106, y: 44.25063, z: 0.7105324}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1076280873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1700,7 @@ GameObject:
   - component: {fileID: 1076280877}
   - component: {fileID: 1076280876}
   - component: {fileID: 1076280875}
+  - component: {fileID: 1076280878}
   m_Layer: 5
   m_Name: corridor
   m_TagString: Untagged
@@ -1779,6 +1822,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076280873}
   m_CullTransparentMesh: 1
+--- !u!65 &1076280878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076280873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 239.9106, y: 44.25063, z: 0.7105324}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1325573920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,6 +2460,7 @@ GameObject:
   - component: {fileID: 2026234187}
   - component: {fileID: 2026234186}
   - component: {fileID: 2026234185}
+  - component: {fileID: 2026234188}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -2508,7 +2565,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 6b7f8ff5e9eebfc4d8bfe919379ccc3b, type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2525,6 +2582,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026234183}
   m_CullTransparentMesh: 1
+--- !u!65 &2026234188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026234183}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 239.9106, y: 44.25063, z: 0.7105324}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2116900112
 GameObject:
   m_ObjectHideFlags: 0

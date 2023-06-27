@@ -38,20 +38,15 @@ public class DialogueLogic : MonoBehaviour {
 		}
 	}
 
-	public void PressEnter(InputAction.CallbackContext ctx) {
-		if (ctx.performed)
-			enterPressed = true;
-		if (ctx.canceled)
-			enterPressed = false;
-	}
-
 	private void Update() {
 		if (fullDialogue.Count > 0) {
-			if (cont.activeSelf == true && enterPressed) {
+			if (cont.activeSelf == true && (Keyboard.current.enterKey.isPressed || Keyboard.current.hKey.isPressed) && !enterPressed) {
+				enterPressed = true;
 				cont.SetActive(false);
 				continueText = true;
 			}
-			if (!continueText && enterPressed) {
+			if (!continueText && (Keyboard.current.enterKey.isPressed || Keyboard.current.hKey.isPressed) && !enterPressed) {
+				enterPressed = true;
 				textDisplay.text = diagString;
 				cont.SetActive(true);
 			}
@@ -82,6 +77,8 @@ public class DialogueLogic : MonoBehaviour {
 					StartCoroutine(ReadText());
 			}
 		}
+		if (enterPressed && !(Keyboard.current.enterKey.isPressed || Keyboard.current.hKey.isPressed))
+			enterPressed = false;
 	}
 
 	public void Speak(Dialogue text) {

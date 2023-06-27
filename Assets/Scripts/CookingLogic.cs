@@ -67,7 +67,7 @@ public class CookingLogic : MonoBehaviour {
 				break;
 			case 1:
 				dialRotation += 0.05f; 
-				if (Keyboard.current.fKey.isPressed) {
+				if (Keyboard.current.fKey.isPressed || Keyboard.current.bKey.isPressed) {
 					dialRotation -= 0.15f;
 				}
 				if (fryCount >= 1) {
@@ -75,12 +75,12 @@ public class CookingLogic : MonoBehaviour {
 				}
 				break;
 			case 2:
-				if (Keyboard.current.enterKey.isPressed && exitStage == 1 && !inText && exitPrompt.activeSelf) {
+				if ((Keyboard.current.enterKey.isPressed || Keyboard.current.hKey.isPressed)&& exitStage == 1 && !inText && exitPrompt.activeSelf) {
 					GameObject.Find("Dialogue Manager").GetComponent<DialogueLogic>().Speak(diag);
 					exitPrompt.SetActive(false);
 					inText = true;
 				}
-				if (Keyboard.current.enterKey.isPressed && exitStage == 2) {
+				if ((Keyboard.current.enterKey.isPressed || Keyboard.current.hKey.isPressed) && exitStage == 2) {
 					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().DeactivateMinigame(4);
 					GameObject.Find("Checklist DDOL").GetComponent<ChecklistLogic>().GetTime();
 					SceneManager.LoadScene(4);
