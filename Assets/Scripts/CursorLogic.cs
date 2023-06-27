@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
@@ -15,7 +16,9 @@ public class CursorLogic : MonoBehaviour {
 
 	bool send;
 
-	Vector2 mousePos;
+	public Vector2 mousePos;
+
+	bool hasBeenPressed = false;
 
 	void Start() {
 		mousePos = new Vector2(Screen.width / 2, Screen.height / 2);
@@ -31,18 +34,6 @@ public class CursorLogic : MonoBehaviour {
 			DontDestroyOnLoad(this);
 			this.name = "Cursor DDOL";
 			count = 0;
-		}
-	}
-
-	public void Click (InputAction.CallbackContext ctx) { 
-		if (ctx.performed) {
-			myAnim.SetTrigger("click");
-			send = true;
-		}
-
-		if (ctx.canceled) {
-			thingToPickup = null;
-			send = false;
 		}
 	}
 
@@ -65,7 +56,31 @@ public class CursorLogic : MonoBehaviour {
 			GameObject.Find("Cleaning Manager").GetComponent<CleaningLogic>().Pickup(thingToPickup);
 			thingToPickup = null;
 		}
+
+
+		if ((Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed)&& !hasBeenPressed)
+		{
+			hasBeenPressed = true;
+
+			myAnim.SetTrigger("click");
+			send = true;
+
+			RaycastHit hit;
+
+			if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit))
+			{
+				hit.transform.GetComponent<Button>().onClick?.Invoke();
+			}
+		}	
+
+		if (hasBeenPressed && !(Mouse.current.leftButton.isPressed && Keyboard.current.xKey.isPressed))
+        {
+			hasBeenPressed = false;
+			thingToPickup = null;
+			send = false;
+		}
 	}
+
 	void OnTriggerStay2D(Collider2D collision) {
 		if (thingToPickup == null)
 			thingToPickup = collision.gameObject;

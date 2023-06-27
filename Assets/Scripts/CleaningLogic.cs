@@ -23,6 +23,7 @@ public class CleaningLogic : MonoBehaviour {
 	public AudioSource thudPlayer;
 	public AudioClip thudSFX;
 	bool lClickPressed;
+	Vector2 mousePos;
 	void Start() {
 		progressDiag = gameObject.AddComponent<Dialogue>();	progressDiag.text = progressText;
 		frameDiag = gameObject.AddComponent<Dialogue>();	frameDiag.text = frameText;
@@ -31,24 +32,20 @@ public class CleaningLogic : MonoBehaviour {
 		pillDiag = gameObject.AddComponent<Dialogue>();		pillDiag.text = pillText;
 		completeDiag = gameObject.AddComponent<Dialogue>();	completeDiag.text = completeText;
 		dialogueManager = GameObject.FindObjectOfType<DialogueLogic>();
-	}
-
-	Vector2 mousePos;
-
-	public void Point(InputAction.CallbackContext ctx) {
-		mousePos = ctx.ReadValue<Vector2>();
+		
 	}
 
 	void Update() {
-		if (lClickPressed && heldObject != null) {
+		mousePos = FindObjectOfType<CursorLogic>().mousePos;
+		if ((Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed) && heldObject != null) {
 			pickingUp = true;
 			offset = FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos) - heldObject.GetComponent<RectTransform>().position;
 		}
-		if (lClickPressed && heldObject != null && pickingUp) {
+		if ((Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed) && heldObject != null && pickingUp) {
 			pickingUp = true;
 			heldObject.GetComponent<RectTransform>().position = new Vector3(FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos).x, FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos).y, 0f) - offset;
 		}
-		if (!lClickPressed) {
+		if (!(Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed)) {
 			pickingUp = false;
 			heldObject = null;
 			offset = Vector3.zero;
@@ -72,15 +69,6 @@ public class CleaningLogic : MonoBehaviour {
 	public void Pickup(GameObject parent) {
 		if (!pickingUp) {
 			heldObject = parent.transform.parent.gameObject;
-		}
-	}
-
-	public void Click(InputAction.CallbackContext ctx) {
-		if (ctx.performed) {
-			lClickPressed = true;
-		}
-		if (ctx.canceled) {
-			lClickPressed = false;
 		}
 	}
 
