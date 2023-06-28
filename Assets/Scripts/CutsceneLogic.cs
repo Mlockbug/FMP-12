@@ -40,7 +40,7 @@ public class CutsceneLogic : MonoBehaviour
         playing= false;
         while (opacity>0f) {
 			if (!videoPlayer.isPlaying)
-				opacity -= 0.05f;
+				opacity -= 0.05f * Time.deltaTime;
 			Mathf.Clamp(opacity, 0f, 1f);
 			videoPlayer.targetCameraAlpha = opacity;
 		}

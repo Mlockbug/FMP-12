@@ -44,7 +44,7 @@ public class CursorLogic : MonoBehaviour {
 	}
 
 	void Update() {
-		mousePos += joystickInput;
+		mousePos += (joystickInput * 400 * Time.deltaTime);
 
 		mousePos = new Vector2(Mathf.Clamp(mousePos.x, 0f, Screen.width), Mathf.Clamp(mousePos.y, 0, Screen.height));
 		Mouse.current.WarpCursorPosition(mousePos);
@@ -55,6 +55,7 @@ public class CursorLogic : MonoBehaviour {
 		if (SceneManager.GetActiveScene().buildIndex == 11 && thingToPickup!= null && send) {
 			GameObject.Find("Cleaning Manager").GetComponent<CleaningLogic>().Pickup(thingToPickup);
 			thingToPickup = null;
+			send = false;
 		}
 
 
@@ -74,7 +75,7 @@ public class CursorLogic : MonoBehaviour {
 			}
 		}	
 
-		if (hasBeenPressed && !(Mouse.current.leftButton.isPressed && Keyboard.current.xKey.isPressed))
+		if (hasBeenPressed && !(Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed))
         {
 			hasBeenPressed = false;
 			thingToPickup = null;

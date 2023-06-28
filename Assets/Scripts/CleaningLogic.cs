@@ -37,15 +37,14 @@ public class CleaningLogic : MonoBehaviour {
 
 	void Update() {
 		mousePos = FindObjectOfType<CursorLogic>().mousePos;
-		if ((Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed) && heldObject != null) {
-			pickingUp = true;
-			offset = FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos) - heldObject.GetComponent<RectTransform>().position;
-		}
-		if ((Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed) && heldObject != null && pickingUp) {
-			pickingUp = true;
+		if ((Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed) && heldObject != null  && !textBox.activeSelf) {
+			if (!pickingUp)
+				offset = new Vector3(FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos).x, FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos).y, 0f) - heldObject.GetComponent<RectTransform>().position;
 			heldObject.GetComponent<RectTransform>().position = new Vector3(FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos).x, FindObjectOfType<Camera>().ScreenToWorldPoint(mousePos).y, 0f) - offset;
+			pickingUp = true;
 		}
 		if (!(Mouse.current.leftButton.isPressed || Keyboard.current.xKey.isPressed)) {
+			//heldObject.GetComponent<RectTransform>().SetParent(null);
 			pickingUp = false;
 			heldObject = null;
 			offset = Vector3.zero;
@@ -73,7 +72,6 @@ public class CleaningLogic : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collision) {
-		Debug.Log("EEEEEEEEEEEEE");
 		switch (collision.gameObject.tag) {
 			case "Frame":
 				dialogueManager.Speak(frameDiag);

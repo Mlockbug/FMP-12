@@ -66,9 +66,9 @@ public class CookingLogic : MonoBehaviour {
 				}
 				break;
 			case 1:
-				dialRotation += 0.05f; 
+				dialRotation += 5f * Time.deltaTime; 
 				if (Keyboard.current.fKey.isPressed || Keyboard.current.bKey.isPressed) {
-					dialRotation -= 0.15f;
+					dialRotation -= 15f * Time.deltaTime;
 				}
 				if (fryCount >= 1) {
 					cooked = true;
@@ -102,7 +102,7 @@ public class CookingLogic : MonoBehaviour {
 			StartCoroutine(Exit());
 		}
 		if (dialRotation > -14.5 && dialRotation < 14.5) {
-			fryCount += 0.001f;
+			fryCount += 0.1f * Time.deltaTime;
 			transparencyCook.a = fryCount;
 		}
 		saltOverlay.color = transparencySalt;
