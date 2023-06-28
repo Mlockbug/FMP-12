@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class ChecklistLogic : MonoBehaviour {
@@ -12,6 +13,7 @@ public class ChecklistLogic : MonoBehaviour {
 	GameObject playButton;
 	GameObject talkButton;
 	bool cleared;
+	Color transparent = new Color(1, 1, 1, 0);
 	int activeScene;
 	float musicTime;
 	void Start() {
@@ -30,6 +32,14 @@ public class ChecklistLogic : MonoBehaviour {
 	}
 
 	private void Update() {
+		if (Keyboard.current.digit2Key.isPressed && Keyboard.current.digit6Key.isPressed) {
+			for (int i = 0; i < 5; i++) {
+				minigamesActive[i] = false;
+				minigamesCompleted[i] = false;
+				GameObject.Find("Pause canvas DDOL").GetComponent<PauseLogic>().checkmarks[i].color = transparent;
+			}
+			doneStartCutscene = false;
+		}
 		playButton = GameObject.Find("Play");
 		talkButton = GameObject.Find("Talk");
 		activeScene = SceneManager.GetActiveScene().buildIndex;
