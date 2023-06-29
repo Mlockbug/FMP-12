@@ -46,6 +46,7 @@ public class CutsceneLogic : MonoBehaviour
 		}
         endScreen.SetActive(true);
         yield return new WaitForSeconds(5f);
-        Application.Quit();
+        //Application.Quit();
+        FindObjectOfType<ChecklistLogic>().ResetProgress();
     }
 }

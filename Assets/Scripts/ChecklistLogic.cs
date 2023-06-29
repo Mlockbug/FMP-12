@@ -33,12 +33,7 @@ public class ChecklistLogic : MonoBehaviour {
 
 	private void Update() {
 		if (Keyboard.current.digit2Key.isPressed && Keyboard.current.digit6Key.isPressed) {
-			for (int i = 0; i < 5; i++) {
-				minigamesActive[i] = false;
-				minigamesCompleted[i] = false;
-				GameObject.Find("Pause canvas DDOL").GetComponent<PauseLogic>().checkmarks[i].color = transparent;
-			}
-			doneStartCutscene = false;
+			ResetProgress();
 		}
 		playButton = GameObject.Find("Play");
 		talkButton = GameObject.Find("Talk");
@@ -73,6 +68,15 @@ public class ChecklistLogic : MonoBehaviour {
 		}
 	}
 
+	public void ResetProgress() {
+		for (int i = 0; i < 5; i++) {
+			minigamesActive[i] = false;
+			minigamesCompleted[i] = false;
+			GameObject.Find("Pause canvas DDOL").GetComponent<PauseLogic>().checkmarks[i].color = transparent;
+		}
+		doneStartCutscene = false;
+		SceneManager.LoadScene(0);
+	}
 	public void ActivateMinigame() {
 		minigamesActive[activeScene - 1] = true;
 	}
