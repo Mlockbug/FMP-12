@@ -21,6 +21,7 @@ public class PauseLogic : MonoBehaviour {
 			DontDestroyOnLoad(this);
 			this.name = "Pause canvas DDOL";
 		}
+		pauseMenu.SetActive(false);
 	}
 
 	public void Escape(InputAction.CallbackContext ctx) {
